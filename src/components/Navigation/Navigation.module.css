@@ -13,7 +13,7 @@
     font-size: 20px;
     font-weight: 500;
     text-decoration: none;
-    color: #000000;
+    color: #ffffff;
   }
   
   .link::after {
@@ -23,7 +23,7 @@
     bottom: 0;
     width: 0;
     height: 2px;
-    background-color: #000000;
+    background-color: #ffffff;
     transition: width 0.3s ease-in-out;
   }
   
@@ -32,7 +32,7 @@
   }
   
   .active {
-    color: #1d0f9e;
+    color: #2196f3;
     cursor: default;
   }
   

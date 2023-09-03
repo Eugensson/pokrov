@@ -1,0 +1,23 @@
+.container {
+    display: block;
+    margin-bottom: 20px;
+    padding: 10px 20px;
+    cursor: pointer;
+    background-color: #f16406;
+    border-radius: 5px;
+    border: 2px solid #f16406;
+    width: max-content;
+    font-size: 20px;
+    font-weight: 700;
+    text-align: center;
+    text-decoration: none;
+    color: #212121;
+  }
+  
+  .container:hover,
+  .container:focus {
+    border: 2px solid #f16406;
+    background-color: #ffffff;
+  }
+  
+

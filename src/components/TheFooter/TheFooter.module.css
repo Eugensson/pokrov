@@ -1,0 +1,84 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+    padding: 50px;
+    border-top: 3px solid #ffbc10;
+    border-bottom: 3px solid #ffbc10;
+    background-color: #0e0f30;
+  }
+  
+  .wrapper {
+    display: flex;
+    gap: 100px;
+    justify-content: space-between;
+  }
+  
+  .block {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+  
+    padding: 40px 40px;
+    width: calc((100% - 200px) / 3);
+    text-align: center;
+    color: #ffffff;
+    background-color: rgba(255, 255, 255, 0.2);
+  }
+  
+  .info {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  
+  .title {
+    display: flex;
+    align-items: start;
+    flex-direction: column;
+    gap: 5px;
+  
+    font-size: 18px;
+  }
+  
+  .link {
+    color: #ffffff;
+    text-decoration: none;
+    transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);    
+  }
+
+  .link:hover, .link:focus {
+      color: #2196f3;
+    }
+
+  .sociallist {
+    display: flex;
+    margin: 0 auto;
+    gap: 20px;
+    width: 240px;
+    list-style: none;
+  }
+  
+  .socialLink {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    text-decoration: none;
+    background-color: rgba(255, 255, 255, 0.3);
+    transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  
+  .socialLink:hover,
+  .socialLink:focus {
+    background-color: #2196f3;
+  }
+  
+  .policy {
+    display: inline-block;
+    text-align: center;
+    color: #ffbc10;
+  }
+  

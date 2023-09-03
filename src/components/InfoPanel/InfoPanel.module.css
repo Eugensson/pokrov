@@ -1,0 +1,85 @@
+  .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding: 10px;
+  }
+  
+  .schedule {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: #757575;
+  }
+  
+  .contactlist {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    list-style: none;
+  }
+  
+  .contactItem {
+    display: flex;
+  }
+  
+  .contactLink {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+    color: #757575;
+  }
+  
+  .contactLink:hover,
+  .contactLink:focus {
+    color: #2196f3;
+  }
+  
+  .socialLink {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background-color: #2196f3;
+  }
+  
+  .socialLink:hover,
+  .socialLink:focus {
+    background-color: #0e0f30;
+  }
+  
+  .icon__svg {
+    fill: #757575;
+  }
+  
+  .contactLink:hover .icon__svg,
+  .sociallist:focus .icon__svg {
+    fill: #2196f3;
+  }
+  
+  .sociallist {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    list-style: none;
+  }
+  
+  .socialItem {
+    display: flex;
+    align-items: center;
+  }
+  
+  .socialLink {
+    text-decoration: none;
+    fill: #757575;
+  }
+  
+  .socialLink:hover,
+  .socialLink:focus {
+    fill: #2196f3;
+  }

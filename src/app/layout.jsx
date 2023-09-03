@@ -1,7 +1,16 @@
+import InfoPanel from '@/components/InfoPanel/InfoPanel';
 import TheHeader from '@/components/TheHeader/TheHeader';
 import TheFooter from '@/components/TheFooter/TheFooter';
 
-import styles from '@/app/layout.module.css';
+// import styles from '@/app/layout.module.css';
+import "./globals.css";
+
+import { Roboto } from "next/font/google";
+const roboto = Roboto({
+  subsets: ["cyrillic"],
+  variable: "--font-roboto",
+  weight: ["400", "500", "700", "900"],
+});
 
 export const metadata = {
   title: 'Create Next App',
@@ -11,9 +20,10 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={styles.container}>
+      <body className={roboto.className}>
+        <InfoPanel />
         <TheHeader />
-          <main>{children}</main>
+          <main className=''>{children}</main>
         <TheFooter />
       </body>            
     </html>

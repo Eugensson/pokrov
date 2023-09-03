@@ -1,7 +1,9 @@
 'use client';
 
-import styles from '@/components/TheHeader/TheHeader.module.css';
+import Logo from '@/components/Logo/Logo';
 import { Navigation } from '@/components/Navigation/Navigation';
+
+import styles from '@/components/TheHeader/TheHeader.module.css';
 
 const navItems = [
   { label: 'Про компанію', href: '/' },
@@ -15,7 +17,8 @@ const navItems = [
 
 const TheHeader = () => {
   return (
-    <header className={styles.container}>
+    <header className={styles.wrapper}>
+      <Logo />
       <Navigation navLinks={navItems} />       
     </header>
   );
