@@ -1,6 +1,14 @@
 .wrapper {
     width: 100%;
     padding: 50px;
+    color: #ffffff;
+    background-color: #0e0f30;
     border-top: 3px solid #ffbc10;
     border-bottom: 3px solid #ffbc10;
+}
+
+.sertificateWrapper {
+    display: flex;
+    justify-content: space-between;
+    gap: 60px;
 }
