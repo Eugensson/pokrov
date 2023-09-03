@@ -7,7 +7,7 @@ export const metadata = {
 
 const Assurance = () => {
   return (
-    <section className={styles.container}>      
+    <section className={styles.assurance}>      
     </section>
   );
 };

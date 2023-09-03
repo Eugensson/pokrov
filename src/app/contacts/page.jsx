@@ -10,7 +10,7 @@ export const metadata = {
 
 const Contacts = () => {
   return (
-    <section className={styles.container}>
+    <section className={styles.contacts}>
       <h1>Контакти</h1>
       <ul className={styles.list}>
         <li className={styles.item}>

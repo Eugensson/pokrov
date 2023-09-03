@@ -12,7 +12,7 @@ export const metadata = {
 
 const Services = () => {
   return (
-    <div className={styles.container}>
+    <section className={styles.services}>
       <div className={styles.imgContainer}>
         <div className={styles.imgText}>
           <h1 className={styles.visuallyHidden}>Послуги</h1>
@@ -70,7 +70,7 @@ const Services = () => {
           <LinkBtn url="/contacts" text="Контакти" />
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 

@@ -7,7 +7,7 @@ export const metadata = {
 
 const Portfolio = () => {
   return (
-    <section className={styles.wrapper}>
+    <section className={styles.portfolio}>
       <h1 className={styles.selectTitle}>Галерея робіт</h1>
       <div className={styles.items}>
         <Link href="/portfolio/domes" className={styles.item}>

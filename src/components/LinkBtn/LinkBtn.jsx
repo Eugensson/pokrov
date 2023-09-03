@@ -1,6 +1,6 @@
 import Link from 'next/link';
 
-import styles from './LinkBtn.module.css';
+import styles from '@/components/LinkBtn/LinkBtn.module.css';
 
 const LinkBtn = ({ text, url }) => {
   return (

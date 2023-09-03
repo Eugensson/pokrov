@@ -2,7 +2,6 @@ import InfoPanel from '@/components/InfoPanel/InfoPanel';
 import TheHeader from '@/components/TheHeader/TheHeader';
 import TheFooter from '@/components/TheFooter/TheFooter';
 
-// import styles from '@/app/layout.module.css';
 import "./globals.css";
 
 import { Roboto } from "next/font/google";
