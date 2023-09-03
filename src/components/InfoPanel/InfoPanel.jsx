@@ -98,7 +98,7 @@ const InfoPanel = () => {
               target="_blank"
             >
               <Image
-                src={"/Linkedin.svg"}
+                src={"/LinkedIn.svg"}                
                 width={15}
                 height={15}
                 alt="Іконка linkedIn"
