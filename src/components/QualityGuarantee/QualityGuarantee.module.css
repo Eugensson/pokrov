@@ -9,6 +9,39 @@
 
 .sertificateWrapper {
     display: flex;
+    align-items: center;
     justify-content: space-between;
     gap: 60px;
+}
+
+.descriptions {
+  display: flex;
+  gap: 100px;
+  margin-bottom: 50px;
+}
+
+.subtitle {
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: 50%;
+    font-size: 40px;
+    font-weight: 500;
+    text-transform: uppercase;
+}
+
+.subtitle::after {
+  content: "";
+  display: block;
+  height: 200px;
+  width: 3px;
+  background-color: #ffbc10;
+  position: absolute;
+  top: -5%;
+  right: -10%;
+  }
+
+.text {
+    font-size: 20px;
+    line-height: 1.5;
 }
