@@ -1,6 +1,40 @@
 .wrapper {
     width: 100%;
     padding: 50px;
+    color: #0e0f30;
+    background-color: #ffffff;
     border-top: 3px solid #ffbc10;
     border-bottom: 3px solid #ffbc10;
+}
+
+.descriptions {
+  position: relative;
+  display: flex;
+  gap: 100px;
+  margin-bottom: 50px;
+}
+
+.subtitle {    
+    display: flex;
+    align-items: center;
+    width: 150%;
+    font-size: 40px;
+    font-weight: 900;
+    text-transform: uppercase;
+}
+
+.subtitle::before {
+  content: "";
+  display: block;
+  height: 200px;
+  width: 3px;
+  background-color: #ffbc10;
+  position: absolute;
+  top: -10%;
+  right: 37%;
+  }
+
+.text {
+    font-size: 20px;
+    line-height: 1.5;
 }

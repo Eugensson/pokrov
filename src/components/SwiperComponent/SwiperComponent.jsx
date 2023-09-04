@@ -7,19 +7,19 @@ import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 
-const SwiperComponent = ({ data }) => {
+const SwiperComponent = ({ spaceBetween, slidesPerView, data, width, height }) => {
   return (
     <Swiper
       modules={[Navigation, Pagination]}
-      spaceBetween={10}
-      slidesPerView={1}
+      spaceBetween={spaceBetween}
+      slidesPerView={slidesPerView}
       autoplay
       navigation
-      pagination={{ clickable: true }}      
+      pagination={{ clablicke: true }}      
     >
       {data.map(({ id, title, image }) => (
         <SwiperSlide key={id}>
-          <Image width={900} height={600} src={image} priority alt={title} />
+          <Image width={width} height={height} src={image} priority alt={title} />
         </SwiperSlide>
       ))}
     </Swiper>
