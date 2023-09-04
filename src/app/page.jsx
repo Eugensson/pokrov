@@ -8,7 +8,7 @@ import styles from '@/app/page.module.css'
 
 export default function Home() {
   return (
-    <section className={styles.about}>
+    <section>
       <h1 className={styles.visuallyHidden}> Про компанію</h1>
       <Hero/>
       <Preference/>
