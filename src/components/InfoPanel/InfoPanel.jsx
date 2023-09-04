@@ -1,4 +1,8 @@
+"use client";
+
 import Image from 'next/image';
+
+import DarkModeToggle from '../DarkModeToggle/DarkModeToggle';
 
 import styles from '@/components/InfoPanel/InfoPanel.module.css';
 
@@ -80,7 +84,7 @@ const InfoPanel = () => {
           <li className={styles.socialItem}>
             <a
               className={styles.socialLink}
-              href="https://facebook.com/"
+              href="https://facebook.com/pokrov.ltd/"
               target="_blank"
             >
               <Image
@@ -106,6 +110,7 @@ const InfoPanel = () => {
             </a>
           </li>
         </ul>
+        <DarkModeToggle/>
       </section>
   );
 };

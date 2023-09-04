@@ -1,8 +1,6 @@
 .wrapper {
     width: 100%;
-    padding: 50px;
-    color: #0e0f30;
-    background-color: #ffffff;
+    padding: 50px;    
     border-top: 3px solid #ffbc10;
     border-bottom: 3px solid #ffbc10;
 }

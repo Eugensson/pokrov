@@ -58,3 +58,17 @@ p {
       max-width: 1440px;
     }
   }
+
+  .theme {
+    transition: 1s all ease;
+  }
+  
+  .light {
+    background-color: #e5e4e2;
+    color: #0e0f30;
+  }
+  
+  .dark {
+    background-color: #0e0f30;
+    color: #e5e4e2;
+  }

@@ -1,3 +1,4 @@
+import { ThemeProvider } from "@/context/ThemeContext";
 import InfoPanel from '@/components/InfoPanel/InfoPanel';
 import TheHeader from '@/components/TheHeader/TheHeader';
 import TheFooter from '@/components/TheFooter/TheFooter';
@@ -20,10 +21,12 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className={roboto.className}>
-        <InfoPanel />
+      <ThemeProvider>
+      <InfoPanel />
         <TheHeader />
           <main className=''>{children}</main>
         <TheFooter />
+      </ThemeProvider>        
       </body>            
     </html>
   )
