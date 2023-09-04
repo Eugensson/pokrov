@@ -5,17 +5,15 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import Image from 'next/image';
 import 'swiper/css';
 import 'swiper/css/navigation';
-import 'swiper/css/pagination';
 
 const SwiperComponent = ({ spaceBetween, slidesPerView, data, width, height }) => {
   return (
     <Swiper
-      modules={[Navigation, Pagination]}
+      modules={[Navigation]}
       spaceBetween={spaceBetween}
       slidesPerView={slidesPerView}
       autoplay
-      navigation
-      pagination={{ clablicke: true }}      
+      navigation          
     >
       {data.map(({ id, title, image }) => (
         <SwiperSlide key={id}>
