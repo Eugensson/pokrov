@@ -20,21 +20,6 @@ const TheFooter = () => {
             <p className={styles.text}>Сб, Нд: вихідний</p>
           </div>
           <div className={styles.contactsWrapper}>
-            <b>Пошта:</b>
-            <Link className={styles.contactLink} href="mailto:pokrov-ltd@ukr.net">
-              pokrov-ltd@ukr.net
-            </Link>
-          </div>
-        </div>
-        <div className={linkClassNameCenter}>          
-          <Logo width={200} height={160}/>
-          <Social width={30} height={30}/>
-          <span className={styles.policy}>
-            &copy; 2023, Pokrov-ltd. All rights reserved.
-          </span>
-        </div>
-        <div className={linkClassNameLeft}>
-          <div className={styles.contactsWrapper}>
               <b>Контактні телефони:</b>
               <Link className={styles.contactLink} href="tel:+380965300300">
                 +38 096 5-300-300
@@ -45,6 +30,21 @@ const TheFooter = () => {
               <Link className={styles.contactLink} href="tel:+380682300300">
                 +38 068 2-300-300
               </Link>
+          </div>          
+        </div>
+        <div className={linkClassNameCenter}>          
+          <Logo width={200} height={160}/>
+          <Social width={30} height={30}/>
+          <span className={styles.policy}>
+            &copy; 2023, Pokrov-ltd. All rights reserved.
+          </span>
+        </div>
+        <div className={linkClassNameLeft}>
+        <div className={styles.contactsWrapper}>
+            <b>Пошта:</b>
+            <Link className={styles.contactLink} href="mailto:pokrov-ltd@ukr.net">
+              pokrov-ltd@ukr.net
+            </Link>
           </div>
           <div className={styles.contactsWrapper}>
             <b>Адреса виробництва:</b>
