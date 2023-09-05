@@ -17,7 +17,7 @@ const SwiperComponent = ({ spaceBetween, slidesPerView, data, width, height }) =
     >
       {data.map(({ id, title, image }) => (
         <SwiperSlide key={id}>
-          <Image width={width} height={height} src={image} priority alt={title} />
+          <Image style={{objectFit: 'contain'}} width={width} height={height} src={image} priority alt={title} />
         </SwiperSlide>
       ))}
     </Swiper>

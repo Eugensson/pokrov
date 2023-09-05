@@ -19,7 +19,7 @@ const Category = ({ params }) => {
     <div className={styles.wrapper}>
       <div className={styles.container}>
         <LinkBtn text="До галереї" url="/portfolio"/>      
-        <SwiperComponent spaceBetween={10} slidesPerView={1} data={data} width={900} height={600} />
+        <SwiperComponent spaceBetween={10} slidesPerView={1} data={data} width={900} height={600} />        
       </div>
     </div>    
   );
