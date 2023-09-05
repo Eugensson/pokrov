@@ -10,7 +10,7 @@ const Lang = () => {
             <Link href="/">
               <Image
                 src={"/ua.svg"}
-                width={37.5}
+                width={38}
                 height={25}
                 alt="Іконка з прапором України"
               />
@@ -20,7 +20,7 @@ const Lang = () => {
             <Link href="/">
               <Image
                 src={"/en.svg"}
-                width={37.5}
+                width={38}
                 height={25}
                 alt="Іконка з прапором Великої Британії"
               />
@@ -30,7 +30,7 @@ const Lang = () => {
             <Link href="/">
               <Image
                 src={"/ru.svg"}
-                width={37.5}
+                width={38}
                 height={25}
                 alt="Іконка з прапором Російської Федерації"
               />
