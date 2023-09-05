@@ -27,6 +27,7 @@ const TheFooter = () => {
           </div>
         </div>
         <div className={linkClassNameCenter}>          
+          <Logo width={200} height={160}/>
           <Social width={30} height={30}/>
           <span className={styles.policy}>
             &copy; 2023, Pokrov-ltd. All rights reserved.
