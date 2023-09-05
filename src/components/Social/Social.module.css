@@ -1,0 +1,46 @@
+  .sociallist {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    list-style: none;
+  }
+
+  .socialLink {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: #2196f3;    
+  }
+  
+  .socialLink:hover,
+  .socialLink:focus {
+    background-color: rgba(33, 150, 243, 0.6);
+  }
+  
+  .icon__svg {
+    fill: #757575;
+  }
+  
+  .contactLink:hover .icon__svg,
+  .sociallist:focus .icon__svg {
+    fill: #2196f3;
+  }
+  
+  .socialItem {
+    display: flex;
+    align-items: center;
+  }
+  
+  .socialLink {
+    text-decoration: none;
+    fill: #757575;
+  }
+  
+  .socialLink:hover,
+  .socialLink:focus {
+    fill: #2196f3;
+  }

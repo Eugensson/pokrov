@@ -18,7 +18,7 @@ const navItems = [
 const TheHeader = () => {
   return (
     <header className={styles.wrapper}>
-      <Logo />
+      <Logo width={100} height={80}/>
       <Navigation navLinks={navItems} />       
     </header>
   );

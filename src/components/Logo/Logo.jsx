@@ -1,13 +1,13 @@
 import Link from "next/link";
 import Image from "next/image";
 
-const Logo = () => {
+const Logo = ({width, height}) => {
   return (
     <Link href="/">
           <Image
             src={"/logo.svg"}
-            width={100}
-            height={80}
+            width={width}
+            height={height}            
             alt="Логотип компанії"
           />
     </Link>

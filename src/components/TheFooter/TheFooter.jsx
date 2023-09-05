@@ -1,19 +1,58 @@
 import Link from "next/link";
 import Image from "next/image";
 
+import Social from "@/components/Social/Social";
+import Logo from "../Logo/Logo";
+
 import styles from '@/components/TheFooter/TheFooter.module.css';
 
 const TheFooter = () => {
+  
+  const linkClassNameLeft = `${styles.wrapper} ${styles.left}`;
+  const linkClassNameCenter = `${styles.wrapper} ${styles.center}`;
+    
   return (
-    <footer className={styles.container}>
-      <div className={styles.wrapper}>
-        <div className={styles.block}>1</div>
-        <div className={styles.block}>2</div>
-        <div className={styles.block}>3</div>
-      </div>
-      <span className={styles.policy}>
-        &copy; 2023, Pokrov-ltd. All rights reserved.
-      </span>
+    <footer className={styles.container}>      
+        <div className={linkClassNameLeft}>
+          <div className={styles.contactsWrapper}>
+            <b>Графік роботи:</b>
+            <p className={styles.text}>Пн-Пт: 8:00-20:00</p>
+            <p className={styles.text}>Сб, Нд: вихідний</p>
+          </div>
+          <div className={styles.contactsWrapper}>
+            <b>Пошта:</b>
+            <Link className={styles.contactLink} href="mailto:pokrov-ltd@ukr.net">
+              pokrov-ltd@ukr.net
+            </Link>
+          </div>
+        </div>
+        <div className={linkClassNameCenter}>          
+          <Social width={30} height={30}/>
+          <span className={styles.policy}>
+            &copy; 2023, Pokrov-ltd. All rights reserved.
+          </span>
+        </div>
+        <div className={linkClassNameLeft}>
+          <div className={styles.contactsWrapper}>
+              <b>Контактні телефони:</b>
+              <Link className={styles.contactLink} href="tel:+380965300300">
+                +38 096 5-300-300
+              </Link>
+              <Link className={styles.contactLink} href="tel:+380665300300">
+                +38 066 5-300-300
+              </Link>
+              <Link className={styles.contactLink} href="tel:+380682300300">
+                +38 068 2-300-300
+              </Link>
+          </div>
+          <div className={styles.contactsWrapper}>
+            <b>Адреса виробництва:</b>
+            <p className={styles.text}>Україна,</p>
+            <p className={styles.text}>Черкаська область,</p>
+            <p className={styles.text}>м. Черкаси,</p>
+            <p className={styles.text}>вул. Максима Залізняка, 167</p>
+          </div>
+        </div>      
     </footer>
   );
 };

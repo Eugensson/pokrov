@@ -72,7 +72,7 @@ const Contacts = () => {
           <h2 className={styles.subtitle}>Форма зворотнього зв’язку</h2>
         </div>
         <div className={styles.map}>
-          <h2 className={styles.subtitle}>Мапа проїзду</h2>          
+          <h2 className={styles.subtitle}>Мапа проїзду</h2>                   
         </div>
       </div>
     </section>
