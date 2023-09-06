@@ -9,7 +9,7 @@ export const metadata = {
 
 export default function ServicesDome() {
   return (
-    <section>
+    <section className='sectionsWrapper'>
       <h1>Реалізація аркушів з нержавіючої сталі</h1>
       <p>
         Компанія «Покров» пропонує високоякісні листи з нержавіючої сталі для

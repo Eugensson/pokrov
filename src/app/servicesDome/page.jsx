@@ -9,7 +9,7 @@ export const metadata = {
 
 export default function ServicesDome() {
   return (
-    <section>
+    <section className='sectionsWrapper'>
       <h1>Проектування та виготовлення куполів для церков та соборів</h1>
       <p>
         У нашому проектному відділі працюють висококваліфіковані фахівці, які

@@ -12,7 +12,7 @@ export const metadata = {
 
 const Services = () => {
   return (
-    <section className={styles.services}>
+    <section className='sectionsWrapper'>
       <div className={styles.imgContainer}>
         <div className={styles.imgText}>
           <h1 className={styles.visuallyHidden}>Послуги</h1>

@@ -9,7 +9,7 @@ export const metadata = {
 
 export default function ServicesDome() {
   return (
-    <section>
+    <section className='sectionsWrapper'>
       <h1>Декоративні елементи з нержавіючої сталі</h1>
       <p>
         Ми застосовуємо технологію напилення нітриду титану не лише на аркуші

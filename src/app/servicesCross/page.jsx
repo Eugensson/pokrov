@@ -9,7 +9,7 @@ export const metadata = {
 
 export default function ServicesDome() {
   return (
-    <section>
+    <section className='sectionsWrapper'>
       <h1>Проектування та виготовлення накупольних хрестів</h1>
       <p>
         Наша компанія спеціалізується на проектуванні та виготовленні
