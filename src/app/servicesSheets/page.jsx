@@ -10,6 +10,8 @@ export const metadata = {
 export default function ServicesDome() {
   return (
     <section className='sectionsWrapper'>
+      <div className={styles.imgContainer}></div>
+      <div className={styles.descriptions}>
       <h1>Реалізація аркушів з нержавіючої сталі</h1>
       <p>
         Компанія «Покров» пропонує високоякісні листи з нержавіючої сталі для
@@ -33,6 +35,7 @@ export default function ServicesDome() {
         Ми гарантуємо якість нашої продукції, яка підтверджена сертифікатами та
         спеціальними аналізами, проведеними на базі лабораторії НВФ «Покров».
       </p>
+      </div>      
       <div className={styles.nav}>
         <LinkBtn url="/services" text="Послуги" />
         <LinkBtn url="/portfolio/sheets" text="Галерея робіт" />

@@ -10,6 +10,8 @@ export const metadata = {
 export default function ServicesDome() {
   return (
     <section className='sectionsWrapper'>
+      <div className={styles.imgContainer}></div>
+      <div className={styles.descriptions}>
       <h1>Декоративні елементи з нержавіючої сталі</h1>
       <p>
         Ми застосовуємо технологію напилення нітриду титану не лише на аркуші
@@ -31,6 +33,7 @@ export default function ServicesDome() {
         Якщо ви бажаєте дізнатися більше про напилення нітриду титану на
         декоративні елементи, звертайтеся до наших фахівців.
       </p>
+      </div>      
       <div className={styles.nav}>
         <LinkBtn url="/services" text="Послуги" />
         <LinkBtn url="/portfolio/decor" text="Галерея робіт" />

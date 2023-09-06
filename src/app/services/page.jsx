@@ -13,12 +13,8 @@ export const metadata = {
 const Services = () => {
   return (
     <section className='sectionsWrapper'>
-      <div className={styles.imgContainer}>
-        <div className={styles.imgText}>
-          <h1 className={styles.visuallyHidden}>Послуги</h1>
-        </div>
-      </div>
-
+      <div className={styles.imgContainer}></div>
+      <h1 className={styles.visuallyHidden}>Послуги</h1>
       <div className={styles.textContainer}>
         <div className={styles.item}>
           <h2 className={styles.title}>Хто ми?</h2>

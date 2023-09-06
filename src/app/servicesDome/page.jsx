@@ -10,6 +10,8 @@ export const metadata = {
 export default function ServicesDome() {
   return (
     <section className='sectionsWrapper'>
+      <div className={styles.imgContainer}></div>
+      <div className={styles.descriptions}>
       <h1>Проектування та виготовлення куполів для церков та соборів</h1>
       <p>
         У нашому проектному відділі працюють висококваліфіковані фахівці, які
@@ -36,6 +38,7 @@ export default function ServicesDome() {
         роботи виконуються строго відповідно до строку, оговореного із
         замовником.
       </p>
+      </div>      
       <div className={styles.nav}>
         <LinkBtn url="/services" text="Послуги" />
         <LinkBtn url="/portfolio/domes" text="Галерея робіт" />
