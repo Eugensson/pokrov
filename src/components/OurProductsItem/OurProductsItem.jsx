@@ -6,7 +6,8 @@ import styles from '@/components/OurProductsItem/OurProductsItem.module.css';
 const OurProductsItem = ({href, src, title, descr}) => {
   return (
     <Link className={styles.card} href={href}>
-        <Image
+        <Image        
+        className={styles.productsImage}
         src={src}
         width={300}
         height={300}
