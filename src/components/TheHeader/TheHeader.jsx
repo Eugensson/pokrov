@@ -3,18 +3,9 @@
 import Logo from '@/components/Logo/Logo';
 import Lang from '@/components/Lang/Lang';
 import { Navigation } from '@/components/Navigation/Navigation';
+import { navItems } from '@/data/navItems';
 
 import styles from '@/components/TheHeader/TheHeader.module.css';
-
-const navItems = [
-  { label: 'Про компанію', href: '/' },
-  { label: 'Послуги', href: '/services' },
-  { label: 'Технології', href: '/technology' },
-  { label: 'Гарантія', href: '/assurance' },
-  { label: 'Галерея', href: '/portfolio' },
-  { label: 'Новини', href: '/news' },
-  { label: 'Контакти', href: '/contacts' },
-];
 
 const TheHeader = () => {
   return (

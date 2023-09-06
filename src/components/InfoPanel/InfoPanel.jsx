@@ -18,7 +18,7 @@ const InfoPanel = () => {
           <li className={styles.contactItem}>
             <a className={styles.contactLink} href="tel:+380965300300">
               <Image
-                className="icon__svg"
+                className={styles.svg}
                 src={"/phone.svg"}
                 width={22}
                 height={22}
@@ -42,8 +42,8 @@ const InfoPanel = () => {
               className={styles.contactLink}
               href="mailto:pokrov-ltd@ukr.net"
             >
-              <Image
-                className="icon__svg"
+              <Image                
+                className={styles.svg}
                 src={"/mail.svg"}
                 width={20}
                 height={20}

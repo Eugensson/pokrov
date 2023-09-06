@@ -4,14 +4,13 @@
     justify-content: center;
     gap: 50px;
     padding: 50px;
-    border-top: 3px solid #ffbc10;
+    border-top: 3px solid var(--yellow-color);
   }
   
   .list {
     display: flex;
     width: 100%;
-    gap: 50px;
-    list-style: none;
+    gap: 50px;    
   }
   
   .item {
@@ -50,7 +49,7 @@
   
   .link:hover,
   .link:focus {
-    color: #2196f3;
+    color: var(--accent-text-color);
   }
   
   .wrapper {

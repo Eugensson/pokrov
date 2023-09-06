@@ -8,7 +8,7 @@ export const metadata = {
 const Portfolio = () => {
   return (
     <section className={styles.portfolio}>
-      <h1 className={styles.selectTitle}>Галерея робіт</h1>
+      <h1>Галерея робіт</h1>
       <div className={styles.items}>
         <Link href="/portfolio/domes" className={styles.item}>
           <span className={styles.title}>Куполи</span>

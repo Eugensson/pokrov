@@ -1,13 +1,7 @@
-import styles from '@/components/QualityGuarantee/QualityGuarantee.module.css';
 import SertificatesList from '@/components/SertificatesList/SertificatesList';
+import {sertificates} from '@/data/sertificates';
 
-const sertificates = [
-  { id: '1', text: 'TУ У 25.6-37651685-001:2012 Покриття металеві іонно-плазмові. Технічні умови' },
-  { id: '2', text: 'Сертифікат відповідності (якості) UA1.012.0006075' },
-  { id: '3', text: 'Сертифікат відповідності (якості) UA1.012.0017193' },
-  { id: '4', text: 'ГОСТ 9.308, ГОСТ 9.908, OCT 92-1346' },
-  { id: '5', text: 'ГОСТ 1982, ГОСТ 19282' },
-];
+import styles from '@/components/QualityGuarantee/QualityGuarantee.module.css';
 
 const QualityGuarantee = () => {
   return (

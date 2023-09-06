@@ -1,10 +1,10 @@
 .wrapper {
     width: 100%;
     padding: 50px;
-    color: #ffffff;
-    background-color: #0e0f30;
-    border-top: 3px solid #ffbc10;
-    border-bottom: 3px solid #ffbc10;
+    color: var(--white-color);
+    background-color: var(--secondary-background-color);
+    border-top: 3px solid var(--yellow-color);
+    border-bottom: 3px solid var(--yellow-color);
 }
 
 .sertificateWrapper {
@@ -35,7 +35,7 @@
   display: block;
   height: 200px;
   width: 3px;
-  background-color: #ffbc10;
+  background-color: var(--yellow-color);
   position: absolute;
   top: -5%;
   right: -10%;

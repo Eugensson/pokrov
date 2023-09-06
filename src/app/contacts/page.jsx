@@ -4,7 +4,7 @@ import Link from "next/link";
 import styles from '@/app/contacts/page.module.css';
 
 export const metadata = {
-  title: 'Контакти',
+  title: 'Контакти | НВФ Покров',
   description: "Контактна інформація про компанію",
 };
 
@@ -60,8 +60,8 @@ const Contacts = () => {
             </div>
             <Image
               src={"/location.svg"}
-              width={40}
-              height={40}
+              width={50}
+              height={50}
               alt="Icon location"
             />
           </div>

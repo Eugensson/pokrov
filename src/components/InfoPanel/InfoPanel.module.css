@@ -9,15 +9,13 @@
   .schedule {
     display: flex;
     align-items: center;
-    gap: 10px;
-    color: #757575;
+    gap: 10px;    
   }
   
   .contactlist {
     display: flex;
     align-items: center;
-    gap: 20px;
-    list-style: none;
+    gap: 20px;    
   }
   
   .contactItem {
@@ -27,12 +25,10 @@
   .contactLink {
     display: inline-flex;
     align-items: center;
-    gap: 10px;
-    text-decoration: none;
-    color: #757575;
+    gap: 10px;    
   }
   
   .contactLink:hover,
   .contactLink:focus {
-    color: #2196f3;
+    color: var(--accent-text-color);
   }

@@ -7,7 +7,7 @@ import styles from '@/components/Preference/Preference.module.css';
 const Preference = () => {
   return (
     <section className={styles.wrapper}>
-        <h2 className={styles.visuallyHidden}>Наші перваги</h2>
+        <h2 className="visuallyHidden">Наші перваги</h2>
         <ul className={styles.cardList}>
           <li className={styles.cardItem}>
             <Image

@@ -3,7 +3,7 @@ import LinkBtn from '@/components/LinkBtn/LinkBtn';
 import styles from "@/app/servicesSheets/page.module.css";
 
 export const metadata = {
-  title: 'Аркуші',
+  title: 'Аркуші | НВФ Покров',
   description: 'Реалізація аркушів з нержавіючої сталі',
 };
 

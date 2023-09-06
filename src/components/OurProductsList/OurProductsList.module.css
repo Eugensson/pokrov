@@ -1,13 +1,11 @@
 .list {
     display: flex;
     justify-content: center;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 50px;
-    list-style: none;
+    align-items: center;    
+    gap: 40px;    
 }
   
 .item {
     cursor: pointer;
-    border: 3px solid #ffbc10;
+    border: 3px solid var(--yellow-color);
 }

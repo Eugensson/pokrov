@@ -1,7 +1,7 @@
 import styles from '@/app/news/page.module.css';
 
 export const metadata = {
-  title: 'Новини',
+  title: 'Новини | НВФ Покров',
   description: "Новини",
 };
 

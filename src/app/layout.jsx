@@ -13,7 +13,7 @@ const roboto = Roboto({
 });
 
 export const metadata = {
-  title: 'Головна || НВФ Покров',
+  title: 'НВФ Покров',
   description: 'ТОВ НВФ Покров',
 }
 
@@ -21,11 +21,13 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className={roboto.className}>
-      <ThemeProvider>
-      <InfoPanel />
-        <TheHeader />
-          <main className=''>{children}</main>
-        <TheFooter />
+      <ThemeProvider>             
+          <main className="container">
+            <InfoPanel />
+            <TheHeader />
+            {children}
+            <TheFooter />
+          </main>
       </ThemeProvider>        
       </body>            
     </html>

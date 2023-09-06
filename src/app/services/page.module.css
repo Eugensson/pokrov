@@ -54,13 +54,12 @@
     flex-direction: column;
     gap: 20px;
     font-size: 18px;
-    line-height: 1.4;
-    list-style: none;
+    line-height: 1.4;    
     margin-bottom: 30px;
   }
   
   .link:hover,
   .link:focus {
-    color: #2196f3;
+    color: var(--accent-text-color);
   }
   

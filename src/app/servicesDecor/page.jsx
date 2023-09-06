@@ -3,7 +3,7 @@ import LinkBtn from '@/components/LinkBtn/LinkBtn';
 import styles from "@/app/servicesDecor/page.module.css";
 
 export const metadata = {
-  title: 'Декор',
+  title: 'Декор | НВФ Покров',
   description: 'Декоративні елементи з нержавіючої сталі',
 };
 

@@ -6,7 +6,7 @@ import LinkBtn from '@/components/LinkBtn/LinkBtn';
 import styles from '@/app/services/page.module.css';
 
 export const metadata = {
-  title: 'Послуги',
+  title: 'Послуги | НВФ Покров',
   description: 'Послуги компанії',
 };
 

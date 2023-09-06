@@ -3,7 +3,7 @@ import LinkBtn from '@/components/LinkBtn/LinkBtn';
 import styles from "@/app/servicesDome/page.module.css";
 
 export const metadata = {
-  title: 'Куполи',
+  title: 'Куполи | НВФ Покров',
   description: 'Проектування та виготовлення куполів для церков та соборів',
 };
 

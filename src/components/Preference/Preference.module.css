@@ -1,31 +1,17 @@
-  .visuallyHidden {
-    position: absolute;
-    white-space: nowrap;
-    width: 1px;
-    height: 1px;
-    overflow: hidden;
-    border: 0;
-    padding: 0;
-    clip: rect(0 0 0 0);
-    clip-path: inset(50%);
-    margin: -1px;
-  }
-
   .wrapper {
     display: flex;
     flex-direction: column;
     gap: 30px;
     width: 100%;
     padding: 100px 50px;
-    border-bottom: 3px solid #ffbc10;
+    border-bottom: 3px solid var(--yellow-color);
   }
   
   .cardList {
     display: flex;
     justify-content: space-between;
     gap: 50px;
-    margin-bottom: 50px;
-    list-style: none;
+    margin-bottom: 50px;    
   }
   
   .cardItem {
@@ -49,23 +35,6 @@
     transform: translate(-50%, -50%);
   }
   
-  .link {
-    width: 200px;
-    padding: 10px 20px;
-    text-align: center;
-    border: 1px solid #f16406;
-    border-radius: 5px;
-    background-color: #f16406;
-    color: #212121;
-    text-decoration: none;    
-  }
-  
-  .link:hover,
-  .link:focus {
-    border: 1px solid #ffffff;
-    background-color: #ffffff;
-  }
-
   .cardOverlay {
     display: flex;
     flex-direction: column;
@@ -81,11 +50,11 @@
     font-size: 18px;
     font-weight: 500;
     line-height: 1.4;
-    color: #212121;
-    background-color: #ffbc10;
+    color: var(--primary-text-color);
+    background-color: var(--yellow-color);
   
     transform: translateY(101%);
-    transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);    
+    transition: transform 250ms var(--timing-function);
   }
 
     .cardItem:hover .cardOverlay,
@@ -99,10 +68,8 @@
     left: 50%;
     transform: translateX(-50%);
     text-align: center;
-  
-    width: 100%;
-  
-    color: #ffffff;
+    width: 100%;  
+    color: var(--white-color);
     text-shadow: -1px -1px 0 #000000, 1px -1px 0 #000000, -1px 1px 0 #000000,
       1px 1px 0 #000000;
   }

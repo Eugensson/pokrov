@@ -6,18 +6,16 @@ import Logo from "../Logo/Logo";
 
 import styles from '@/components/TheFooter/TheFooter.module.css';
 
-const TheFooter = () => {
-  
-  const linkClassNameLeft = `${styles.wrapper} ${styles.left}`;
+const TheFooter = () => {  
   const linkClassNameCenter = `${styles.wrapper} ${styles.center}`;
     
   return (
     <footer className={styles.container}>      
-        <div className={linkClassNameLeft}>
+        <div className={styles.wrapper}>
           <div className={styles.contactsWrapper}>
             <b>Графік роботи:</b>
-            <p className={styles.text}>Пн-Пт: 8:00-20:00</p>
-            <p className={styles.text}>Сб, Нд: вихідний</p>
+            <p>Пн-Пт: 8:00-20:00</p>
+            <p>Сб, Нд: вихідний</p>
           </div>
           <div className={styles.contactsWrapper}>
               <b>Контактні телефони:</b>
@@ -35,12 +33,12 @@ const TheFooter = () => {
         <div className={linkClassNameCenter}>          
           <Logo width={200} height={160}/>
           <Social width={30} height={30}/>
-          <span className={styles.policy}>
+          <p className={styles.policy}>
             &copy; 2023, Pokrov-ltd. All rights reserved.
-          </span>
+          </p>
         </div>
-        <div className={linkClassNameLeft}>
-        <div className={styles.contactsWrapper}>
+        <div className={styles.wrapper}>
+          <div className={styles.contactsWrapper}>
             <b>Пошта:</b>
             <Link className={styles.contactLink} href="mailto:pokrov-ltd@ukr.net">
               pokrov-ltd@ukr.net
@@ -48,10 +46,10 @@ const TheFooter = () => {
           </div>
           <div className={styles.contactsWrapper}>
             <b>Адреса виробництва:</b>
-            <p className={styles.text}>Україна,</p>
-            <p className={styles.text}>Черкаська область,</p>
-            <p className={styles.text}>м. Черкаси,</p>
-            <p className={styles.text}>вул. Максима Залізняка, 167</p>
+            <p>Україна,</p>
+            <p>Черкаська область,</p>
+            <p>м. Черкаси,</p>
+            <p>вул. Максима Залізняка, 167</p>
           </div>
         </div>      
     </footer>

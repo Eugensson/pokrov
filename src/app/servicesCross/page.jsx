@@ -3,7 +3,7 @@ import LinkBtn from '@/components/LinkBtn/LinkBtn';
 import styles from "@/app/servicesCross/page.module.css";
 
 export const metadata = {
-  title: 'Хрести',
+  title: 'Хрести | НВФ Покров',
   description: 'Проектування та виготовлення накупольних хрестів',
 };
 

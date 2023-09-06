@@ -1,8 +1,7 @@
   .sociallist {
     display: flex;
     align-items: center;
-    gap: 20px;
-    list-style: none;
+    gap: 20px;    
   }
 
   .socialLink {
@@ -13,7 +12,7 @@
     width: 40px;
     height: 40px;
     border-radius: 50%;
-    background-color: #2196f3;    
+    background-color: var(--accent-text-color);    
   }
   
   .socialLink:hover,
@@ -22,12 +21,12 @@
   }
   
   .icon__svg {
-    fill: #757575;
+    fill: var(--primary-background-color);
   }
   
   .contactLink:hover .icon__svg,
   .sociallist:focus .icon__svg {
-    fill: #2196f3;
+    fill: var(--accent-text-color);
   }
   
   .socialItem {
@@ -37,10 +36,10 @@
   
   .socialLink {
     text-decoration: none;
-    fill: #757575;
+    fill: var(--secondary-text-color);
   }
   
   .socialLink:hover,
   .socialLink:focus {
-    fill: #2196f3;
+    fill: var(--accent-text-color);
   }
