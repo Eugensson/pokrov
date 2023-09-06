@@ -37,11 +37,6 @@
   width: 3px;
   background-color: var(--yellow-color);
   position: absolute;
-  top: -5%;
+  top: -10%;
   right: -10%;
   }
-
-.text {
-    font-size: 20px;
-    line-height: 1.5;
-}
