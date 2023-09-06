@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import Link from 'next/link';
 
 import styles from '@/components/Social/Social.module.css';
 
@@ -6,7 +7,7 @@ const Social = ({width, height}) => {
   return (
     <ul className={styles.sociallist}>
           <li className={styles.socialItem}>
-            <a
+            <Link
               className={styles.socialLink}
               href="https://www.instagram.com/"
               target="_blank"
@@ -17,10 +18,10 @@ const Social = ({width, height}) => {
                 height={height}
                 alt="Іконка Instagram"
               />
-            </a>
+            </Link>
           </li>
           <li className={styles.socialItem}>
-            <a
+            <Link
               className={styles.socialLink}
               href="https://twitter.com/"
               target="_blank"
@@ -31,10 +32,10 @@ const Social = ({width, height}) => {
                 height={15}
                 alt="Іконка Twitter"
               />
-            </a>
+            </Link>
           </li>
           <li className={styles.socialItem}>
-            <a
+            <Link
               className={styles.socialLink}
               href="https://facebook.com/pokrov.ltd/"
               target="_blank"
@@ -45,10 +46,10 @@ const Social = ({width, height}) => {
                 height={15}
                 alt="Іконка Facebook"
               />
-            </a>
+            </Link>
           </li>
           <li className={styles.socialItem}>
-            <a
+            <Link
               className={styles.socialLink}
               href="https://www.linkedin.com/"
               target="_blank"
@@ -59,7 +60,7 @@ const Social = ({width, height}) => {
                 height={15}
                 alt="Іконка linkedIn"
               />
-            </a>
+            </Link>
           </li>
         </ul>
   );

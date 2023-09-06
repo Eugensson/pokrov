@@ -1,8 +1,10 @@
-import styles from './page.module.css';
-import { items } from './data';
 import { notFound } from 'next/navigation';
+
 import SwiperComponent from '@/components/SwiperComponent/SwiperComponent';
 import LinkBtn from '@/components/LinkBtn/LinkBtn';
+import { items } from '@/data/items';
+
+import styles from './page.module.css';
 
 const getData = cat => {
   const data = items[cat];
