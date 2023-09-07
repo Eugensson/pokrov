@@ -1,6 +1,8 @@
 import Image from "next/image";
 import Link from "next/link";
 
+import Map from "@/components/Map/Map";
+
 import styles from '@/app/contacts/page.module.css';
 
 export const metadata = {
@@ -72,7 +74,8 @@ const Contacts = () => {
           <h2 className={styles.subtitle}>Форма зворотнього зв’язку</h2>
         </div>
         <div className={styles.map}>
-          <h2 className={styles.subtitle}>Мапа проїзду</h2>                   
+          <h2 className={styles.subtitle}>Мапа проїзду</h2>
+          <Map/>                  
         </div>
       </div>
     </section>

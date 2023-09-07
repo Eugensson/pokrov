@@ -1,15 +1,16 @@
-import styles from '@/app/news/page.module.css';
+import { NewsSearch } from '@/components/NewsSearch/NewsSearch';
+import { NewsList } from '@/components/NewsList/NewsList';
 
 export const metadata = {
   title: 'Новини | НВФ Покров',
-  description: "Новини",
 };
 
-const News = () => {
+export default function News() {
   return (
-    <section className={styles.container}>      
-    </section>
+    <>
+      <h1>Сторінка новин</h1>
+      <NewsSearch />
+      <NewsList />
+    </>
   );
-};
-
-export default News;
+}
