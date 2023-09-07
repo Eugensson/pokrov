@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 
-import Map from "@/components/Map/Map";
+import Map from "@/components/Map/index";
 
 import styles from '@/app/contacts/page.module.css';
 
