@@ -10,7 +10,7 @@ const page = () => {
         <div
           className="w-full h-[100px] md:h-[250px] xl:h-auto bg-cover rounded-md"
           style={{
-            backgroundImage: "url('/images/banner_5.jpg')",
+            backgroundImage: "url('/services.jpg')",
             backgroundPosition: "top",
           }}
         ></div>

@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 
 const page = () => {
   return (
@@ -7,7 +8,10 @@ const page = () => {
         <div
           className="w-full h-[200px] md:h-[250px] xl:h-auto bg-cover rounded-md"
           style={{
-            backgroundImage: "url('/images/servicescross.jpg')",
+            backgroundImage: "url('/cross.jpg')",
+            backgroundSize: "cover",
+            backgroundRepeat: "no-repeat",
+            backgroundPosition: "0% 25%",
           }}
         ></div>
         <div>
