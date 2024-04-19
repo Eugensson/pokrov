@@ -3,9 +3,9 @@ import { FaAward } from "react-icons/fa";
 const QualityGuarantee = () => {
   return (
     <section className="flex flex-col mx-auto">
-      <div className="divider divider-accent py-10 text-2xl font-bold uppercase">
+      <h2 className="divider divider-accent py-1 md:py-2 xl:py-5 text-lg font-semibold uppercase">
         Гарантія якості
-      </div>
+      </h2>
       <p className="mb-5">
         Ми забезпечуємо надійність наших виробів протягом 50 років. Вся
         продукція відповідає ТУ У 25.6-37651685-001:2012 &quot;Покриття металеві

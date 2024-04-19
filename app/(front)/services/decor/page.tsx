@@ -2,19 +2,20 @@ import Link from "next/link";
 
 const page = () => {
   return (
-    <>
-      <div className="grid grid-cols-1 xl:grid-cols-2 gap-1 md:gap-2">
+    <section className="px-1 md:py-2 xl:py-5 text-xs md:text-sm xl:text-base">
+      <div className="grid grid-cols-1 xl:grid-cols-2 gap-2 xl:gap-10">
         <div
-          className="w-full h-[100px] md:h-[250px] xl:h-auto bg-cover rounded-md"
+          className="w-full h-[100px] md:h-[250px] xl:h-[550px] bg-cover rounded-md"
           style={{
             backgroundImage: "url('/decor.jpg')",
+            backgroundPosition: "25% 15%",
           }}
         ></div>
         <div>
-          <h1 className="divider divider-accent font-bold xl:text-lg">
+          <h2 className="divider divider-accent font-semibold">
             Декоративні елементи
-          </h1>
-          <ul className="flex flex-col gap-1 md:gap-2 text-xs md:text-sm xl:text-base">
+          </h2>
+          <ul className="flex flex-col gap-3 md:gap-5">
             <li>
               <p>
                 Ми застосовуємо технологію напилення нітриду титану не лише на
@@ -43,21 +44,27 @@ const page = () => {
               </p>
             </li>
           </ul>
-          <ul className="flex justify-around text-xs md:text-sm xl:text-base p-5">
+          <ul className="flex justify-between p-5">
             <li>
-              <Link href="/services" className="btn btn-ghost">
+              <Link
+                href="/services"
+                className="btn btn-ghost text-xs md:text-sm xl:text-base"
+              >
                 Повернутися
               </Link>
             </li>
             <li>
-              <Link href="/portfolio/decor" className="btn btn-ghost">
+              <Link
+                href="/portfolio/decor"
+                className="btn btn-ghost text-xs md:text-sm xl:text-base"
+              >
                 Галерея робіт
               </Link>
             </li>
           </ul>
         </div>
       </div>
-    </>
+    </section>
   );
 };
 

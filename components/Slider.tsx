@@ -16,7 +16,7 @@ const Slider = () => {
       speed={500}
       spaceBetween={10}
       slidesPerView={1}
-      className="h-auto w-full rounded-md my-2"
+      className="h-auto w-full"
     >
       <SwiperSlide>
         <Image

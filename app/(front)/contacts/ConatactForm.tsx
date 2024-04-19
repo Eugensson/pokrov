@@ -51,10 +51,10 @@ const ContactForm = () => {
   };
 
   return (
-    <div className="w-full card p-2 lg:p-6 bg-base-300 shadow-2xl">
-      <h1 className="card-title mx-auto mb-2 lg:mb-10 uppercase">
-        Форма зв&apos;язку
-      </h1>
+    <div className="w-full flex-flex-col">
+      <h2 className="divider divider-accent font-semibold uppercase">
+        Форма зв&apos;язку:
+      </h2>
       <form
         className="flex flex-col gap-2 w-full max-w-md mx-auto"
         onSubmit={handleFormSubmit}

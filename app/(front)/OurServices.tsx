@@ -4,12 +4,12 @@ import Image from "next/image";
 const OurServices = () => {
   return (
     <section className="flex flex-col mx-auto">
-      <div className="divider divider-accent py-10 text-2xl font-bold uppercase">
+      <h2 className="divider divider-accent py-1 md:py-2 xl:py-5 text-lg font-semibold uppercase">
         Послуги
-      </div>
-      <ul className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-2 md:gap-4 xl:gap-6">
+      </h2>
+      <ul className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-1 md:gap-3 xl:gap-5">
         <li>
-          <article className="card bg-base-200 hover:shadow-2xl">
+          <article className="card bg-base-100 hover:shadow-xl">
             <figure>
               <Image
                 src={"/images/domes.jpg"}
@@ -19,8 +19,8 @@ const OurServices = () => {
                 className="object-cover w-full h-60"
               />
             </figure>
-            <div className="card-body">
-              <h2 className="card-title text-base">
+            <div className="card-body p-4">
+              <h2 className="card-title text-sm">
                 Проектування та виготовлення куполів
               </h2>
               <div className="card-actions justify-end">
@@ -32,7 +32,7 @@ const OurServices = () => {
           </article>
         </li>
         <li>
-          <article className="card bg-base-200 hover:shadow-2xl">
+          <article className="card bg-base-100 hover:shadow-xl">
             <figure>
               <Image
                 src={"/images/cross.jpg"}
@@ -42,9 +42,9 @@ const OurServices = () => {
                 className="object-cover w-full h-60"
               />
             </figure>
-            <div className="card-body">
-              <h2 className="card-title text-base">
-                Проектування та виготовлення накупольних хрестів
+            <div className="card-body p-4">
+              <h2 className="card-title text-sm">
+                Проектування та виготовлення хрестів
               </h2>
               <div className="card-actions justify-end">
                 <Link href="/services/cross" className="btn btn-shost">
@@ -55,7 +55,7 @@ const OurServices = () => {
           </article>
         </li>
         <li>
-          <article className="card bg-base-200 hover:shadow-2xl">
+          <article className="card bg-base-100 hover:shadow-xl">
             <figure>
               <Image
                 src={"/images/sheets.jpg"}
@@ -65,8 +65,8 @@ const OurServices = () => {
                 className="object-cover w-full h-60"
               />
             </figure>
-            <div className="card-body">
-              <h2 className="card-title text-base">
+            <div className="card-body p-4">
+              <h2 className="card-title text-sm">
                 Реалізація аркушів із нержавіючої сталі
               </h2>
               <div className="card-actions justify-end">
@@ -78,7 +78,7 @@ const OurServices = () => {
           </article>
         </li>
         <li>
-          <article className="card bg-base-200 hover:shadow-2xl">
+          <article className="card bg-base-100 hover:shadow-xl">
             <figure>
               <Image
                 src={"/images/decor.jpg"}
@@ -88,8 +88,8 @@ const OurServices = () => {
                 className="object-cover w-full h-60"
               />
             </figure>
-            <div className="card-body">
-              <h2 className="card-title text-base">
+            <div className="card-body p-4">
+              <h2 className="card-title text-sm">
                 Декоративні елементи з нержавіючої сталі
               </h2>
               <div className="card-actions justify-end">

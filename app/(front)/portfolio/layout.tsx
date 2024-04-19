@@ -10,5 +10,7 @@ export default function ServicesLayout({
 }: {
   children: React.ReactNode;
 }) {
-  return <main className="flex-grow container mx-auto">{children}</main>;
+  return (
+    <section className="flex flex-col py-1 md:py-2 xl:py-5">{children}</section>
+  );
 }

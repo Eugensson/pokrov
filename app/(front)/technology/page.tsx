@@ -2,19 +2,17 @@ import { IoCheckboxOutline } from "react-icons/io5";
 
 const page = () => {
   return (
-    <section className="flex flex-col py-1 md:py-2 xl:py-5">
-      <h1 className="divider divider-accent py-1 md:py-5 xl:py-10 text-xl font-bold uppercase">
-        Технологія
-      </h1>
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-1 md:gap-2">
+    <section className="px-1 md:py-2 xl:py-5 text-xs md:text-sm xl:text-base">
+      <h1 className="divider divider-accent font-bold uppercase">Технологія</h1>
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-2 xl:gap-10">
         <div
-          className="w-full h-[150px] md:h-auto bg-cover rounded-md"
+          className="w-full h-[100px] md:h-auto bg-cover rounded-md"
           style={{
-            backgroundImage: "url('/images/technology.jpg')",
+            backgroundImage: "url('/technology.jpg')",
             backgroundPosition: "0% 30%",
           }}
         ></div>
-        <div className="text-xs md:text-sm xl:text-base">
+        <div className="md:col-span-2">
           <p className="mb-1 md:mb-3">
             Технологія вакуумного напилення (фізичне відкладення парової фази,
             PVD) - процес, за якого тонкі шари матеріалу відкладаються на
@@ -38,11 +36,11 @@ const page = () => {
           </p>
         </div>
 
-        <div className="md:col-span-2">
-          <h2 className="divider divider-accent py-1 md:py-3 xl:py-5 font-bold xl:text-lg">
+        <div className="md:col-span-3">
+          <h2 className="divider divider-accent font-semibold">
             Переваги технології:
           </h2>
-          <ul className="flex flex-col gap-1 md:gap-2 text-xs md:text-sm xl:text-base">
+          <ul className="flex flex-col gap-1 md:gap-2">
             <li className="flex items-center gap-2 xl:gap-4">
               <IoCheckboxOutline className="min-w-4 min-h-4" />
               <p>
@@ -107,11 +105,11 @@ const page = () => {
             </li>
           </ul>
         </div>
-        <div className="md:col-span-2">
-          <h2 className="divider divider-accent py-1 md:py-3 xl:py-5 font-bold xl:text-lg">
+        <div className="md:col-span-3">
+          <h2 className="divider divider-accent font-semibold">
             Етапи техпроцесу:
           </h2>
-          <ul className="flex flex-col gap-1 md:gap-2 text-xs md:text-sm xl:text-base">
+          <ul className="flex flex-col gap-1 md:gap-2">
             <li className="flex items-center gap-2 xl:gap-4">
               <IoCheckboxOutline className="min-w-4 min-h-4" />
               <p>

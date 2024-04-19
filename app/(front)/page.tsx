@@ -15,7 +15,7 @@ export const metadata: Metadata = {
 
 export default async function Home() {
   return (
-    <section className="py-1 md:py-2 xl:py-4">
+    <section>
       <Slider />
       <OurPreference />
       <OurServices />

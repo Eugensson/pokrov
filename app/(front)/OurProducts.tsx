@@ -3,10 +3,10 @@ import { InfiniteMovingCards } from "@/components/ui/infinite-moving-cards";
 
 const OurProducts = () => {
   return (
-    <section className="flex flex-col mx-auto">
-      <div className="divider divider-accent py-10 text-2xl font-bold uppercase">
+    <section className="flex flex-col">
+      <h2 className="divider divider-accent py-1 md:py-2 xl:py-5 text-lg font-semibold uppercase">
         Продукція
-      </div>
+      </h2>
       <p className="mb-5">
         TOB &quot;НВФ &quot;Покров&quot; спеціалізується на напиленні
         нітрид-титану на різноманіьні вироби. Таке покриття допоможе зберегти
