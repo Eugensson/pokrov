@@ -17,7 +17,7 @@ const NavBar = () => {
           return (
             <li key={link.label}>
               <Link
-                className={`py-4 font-bold xl:text-lg ${
+                className={`py-4 ${
                   isActive
                     ? "hover:text-primary text-primary"
                     : "hover:text-primary"
