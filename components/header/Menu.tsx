@@ -45,16 +45,16 @@ const Menu = () => {
               />
 
               {theme === "light" ? (
-                <MdNightlight className="w-6 h-6 " />
+                <MdNightlight className="w-5 h-5" />
               ) : (
-                <MdSunny className="w-6 h-6" />
+                <MdSunny className="w-5 h-5" />
               )}
             </label>
           )}
         </li>
         <li>
           <Link className="btn btn-ghost rounded-btn" href="/cart">
-            <FaCartShopping className="w-6 h-6" />
+            <FaCartShopping className="w-5 h-5" />
             {mounted && items.length != 0 && (
               <div className="badge badge-secondary">
                 {items.reduce((a, c) => a + c.qty, 0)}{" "}
@@ -68,7 +68,7 @@ const Menu = () => {
               <div className="dropdown dropdown-bottom dropdown-end">
                 <label tabIndex={0} className="btn btn-ghost rounded-btn">
                   {session.user.name}
-                  <IoIosArrowDown className="w-6 h-6" />
+                  <IoIosArrowDown className="w-5 h-5" />
                 </label>
                 <ul
                   tabIndex={0}
@@ -101,7 +101,7 @@ const Menu = () => {
               type="button"
               onClick={() => signIn()}
             >
-              <RxEnter className="w-6 h-6" />
+              <RxEnter className="w-5 h-5" />
             </button>
           </li>
         )}

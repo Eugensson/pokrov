@@ -110,7 +110,7 @@ export default async function SearchPage({
   return (
     <div className="grid md:grid-cols-5 md:gap-5 py-2">
       <div>
-        <div className="text-xl pt-3 mb-2">Категорія</div>
+        <div className="divider divider-neutral">Категорія</div>
         <div>
           <ul>
             <li>
@@ -138,7 +138,7 @@ export default async function SearchPage({
           </ul>
         </div>
         <div>
-          <div className="text-xl pt-3 mb-2">Ціна</div>
+          <div className="divider divider-neutral">Ціна</div>
           <ul>
             <li>
               <Link
@@ -165,7 +165,7 @@ export default async function SearchPage({
           </ul>
         </div>
         <div>
-          <div className="text-xl pt-3 mb-2">Відгуки клієнтів</div>
+          <div className="divider divider-neutral">Відгуки клієнтів</div>
           <ul>
             <li>
               <Link

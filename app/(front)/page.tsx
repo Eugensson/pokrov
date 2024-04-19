@@ -1,5 +1,7 @@
 import { Metadata } from "next";
 
+import { FaAward } from "react-icons/fa";
+
 import Slider from "@/components/Slider";
 import OurProducts from "@/app/(front)/OurProducts";
 import OurServices from "@/app/(front)/OurServices";

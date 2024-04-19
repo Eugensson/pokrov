@@ -5,48 +5,39 @@ import { IoShieldCheckmark } from "react-icons/io5";
 
 const OurPreference = () => {
   return (
-    <ul className="grid grid-cols-1 gap-4 md:grid-cols-2 xl:grid-cols-4 py-1 md:py-3">
-      <li className="card gap-1 bg-base-300 border shadow-xl p-1 md:p-3">
-        <FaDroplet className="w-8 h-8 md:w-12 md:h-12 text-blue-900 mx-auto" />
-        <h3 className="font-bold text-xs md:text-lg text-center md:min-h-[60px]">
-          Стійкість до атмосферних явищ та хімічних речовин
-        </h3>
-        <p className="text-xs md:text-base text-center">
-          Покриття захищає поверхню від атмосферного впливу та хімічних речовин,
-          підвищуючи довговічність виробів.
-        </p>
-      </li>
-      <li className="card gap-1 bg-base-300 border shadow-xl p-1 md:p-3">
-        <AiFillControl className="w-8 h-8 md:w-12 md:h-12 text-red-500 mx-auto" />
-        <h3 className="font-bold text-xs md:text-lg text-center md:min-h-[60px]">
-          Контроль кольору та відбиваності
-        </h3>
-        <p className="text-xs md:text-base text-center">
-          Регулюємо колір покриття, відтінки кольорів та рівень відбиваності
-          поверхні (від дзеркальної до матової).
-        </p>
-      </li>
-      <li className="card gap-1 bg-base-300 border shadow-xl p-1 md:p-3">
-        <IoShieldCheckmark className="w-8 h-8 md:w-12 md:h-12 text-indigo-500 mx-auto" />
-        <h3 className="font-bold text-xs md:text-lg text-center md:min-h-[60px]">
-          Стійкість до корозії
-        </h3>
-        <p className="text-xs md:text-base text-center">
-          Покриття має високу стійкість до корозії, що забезпечує тривалий
-          термін експлуатації виробів.
-        </p>
-      </li>
-      <li className="card gap-1 bg-base-300 border shadow-xl p-1 md:p-3">
-        <FaLeaf className="w-8 h-8 md:w-12 md:h-12 text-green-900 mx-auto" />
-        <h3 className="font-bold text-xs md:text-lg text-center md:min-h-[60px]">
-          Екологічна безпека
-        </h3>
-        <p className="text-xs md:text-base text-center">
-          Процес виконується в вакуумі, що дозволяє знизити рівень забруднення
-          довкілля.
-        </p>
-      </li>
-    </ul>
+    <section className="flex flex-col mx-auto">
+      <div className="divider divider-accent py-10 text-2xl font-bold uppercase">
+        Переваги
+      </div>
+      <ul className="w-full flex flex-col md:flex-row mx-auto stats shadow">
+        <li className="stat place-items-center">
+          <FaDroplet className="w-10 h-10 mb-5 text-blue-900" />
+          <p className="stat-title">Стійкість до атмосфери</p>
+          <p className="stat-title">та хімічних речовин</p>
+        </li>
+        <li className="stat place-items-center ">
+          <div className="stat-value mb-5">
+            <AiFillControl className="w-10 h-10 text-red-500" />
+          </div>
+          <p className="stat-title">Широка гамма кольору</p>
+          <p className="stat-title">та фактури поверхні (матова-глянець)</p>
+        </li>
+        <li className="stat place-items-center ">
+          <div className="stat-value mb-5">
+            <IoShieldCheckmark className="w-10 h-10 text-indigo-500" />
+          </div>
+          <p className="stat-title">Корозійна стійкість</p>
+          <p className="stat-title">покриття виробів</p>
+        </li>
+        <li className="stat place-items-center ">
+          <div className="stat-value mb-5 text-green-900">
+            <FaLeaf className="w-10 h-10" />
+          </div>
+          <p className="stat-title">Екологічність виробництва</p>
+          <p className="stat-title">та експлуатації</p>
+        </li>
+      </ul>
+    </section>
   );
 };
 
