@@ -60,7 +60,7 @@ const Form = () => {
         type="text"
         id={id}
         {...register(id, {
-          required: required && `${name} is required`,
+          required: required && `${name} обов'язкове поле`,
           pattern,
         })}
         className="input input-bordered w-full max-w-sm"
@@ -75,15 +75,15 @@ const Form = () => {
     <div>
       <CheckoutSteps current={1} />
       <div className="max-w-sm mx-auto card bg-base-300 my-4">
-        <div className="card-body">
-          <h1 className="card-title">Shipping Address</h1>
+        <div className="card-body p-4">
+          <h1 className="card-title mx-auto">Адреса доставки</h1>
           <form onSubmit={handleSubmit(formSubmit)}>
-            <FormInput name="Full Name" id="fullName" required />
-            <FormInput name="Address" id="address" required />
-            <FormInput name="City" id="city" required />
-            <FormInput name="Postal Code" id="postalCode" required />
-            <FormInput name="Country" id="country" required />
-            <div className="my-2">
+            <FormInput name="П.І.Б." id="fullName" required />
+            <FormInput name="Адреса" id="address" required />
+            <FormInput name="Місто" id="city" required />
+            <FormInput name="Індекс" id="postalCode" required />
+            <FormInput name="Країна" id="country" required />
+            <div className="my-5">
               <button
                 type="submit"
                 disabled={isSubmitting}
@@ -92,7 +92,7 @@ const Form = () => {
                 {isSubmitting && (
                   <span className="loading loading-spinner"></span>
                 )}
-                Next
+                Далі
               </button>
             </div>
           </form>

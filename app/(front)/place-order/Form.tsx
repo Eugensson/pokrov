@@ -74,11 +74,11 @@ const Form = () => {
   return (
     <div>
       <CheckoutSteps current={4} />
-      <div className="grid md:grid-cols-4 md:gap-5 my-4">
+      <div className="grid md:grid-cols-4 md:gap-3 my-4">
         <div className="overflow-x-auto md:col-span-3">
           <div className="card bg-base-300">
-            <div className="card-body">
-              <h2 className="card-title">Shipping Address</h2>
+            <div className="card-body p-2">
+              <h2 className="card-title">Адреса доставки</h2>
               <p>{shippingAddress.fullName}</p>
               <p>
                 {shippingAddress.address}, {shippingAddress.city},{" "}
@@ -86,33 +86,33 @@ const Form = () => {
               </p>
               <div>
                 <Link className="btn" href="/shipping">
-                  Edit
+                  Редагувати
                 </Link>
               </div>
             </div>
           </div>
 
           <div className="card bg-base-300 mt-4">
-            <div className="card-body">
-              <h2 className="card-title">Payment Method</h2>
+            <div className="card-body p-2">
+              <h2 className="card-title">Спосіб оплати</h2>
               <p>{paymentMethod}</p>
               <div>
                 <Link className="btn" href="/payment">
-                  Edit
+                  Редагувати
                 </Link>
               </div>
             </div>
           </div>
 
           <div className="card bg-base-300 mt-4">
-            <div className="card-body">
-              <h2 className="card-title">Items</h2>
+            <div className="card-body p-2">
+              <h2 className="card-title">Дані про товар</h2>
               <table className="table">
                 <thead>
                   <tr>
-                    <th>Item</th>
-                    <th>Quantity</th>
-                    <th>Price</th>
+                    <th>Найменування</th>
+                    <th>Кількість</th>
+                    <th>Ціна</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -144,57 +144,55 @@ const Form = () => {
               </table>
               <div>
                 <Link className="btn" href="/cart">
-                  Edit
+                  Редагувати
                 </Link>
               </div>
             </div>
           </div>
         </div>
 
-        <div>
-          <div className="card bg-base-300">
-            <div className="card-body">
-              <h2 className="card-title">Order Summary</h2>
-              <ul className="space-y-3">
-                <li>
-                  <div className=" flex justify-between">
-                    <div>Items</div>
-                    <div>${itemsPrice}</div>
-                  </div>
-                </li>
-                <li>
-                  <div className=" flex justify-between">
-                    <div>Tax</div>
-                    <div>${taxPrice}</div>
-                  </div>
-                </li>
-                <li>
-                  <div className=" flex justify-between">
-                    <div>Shipping</div>
-                    <div>${shippingPrice}</div>
-                  </div>
-                </li>
-                <li>
-                  <div className=" flex justify-between">
-                    <div>Total</div>
-                    <div>${totalPrice}</div>
-                  </div>
-                </li>
+        <div className="card bg-base-300">
+          <div className="card-body p-2">
+            <h2 className="card-title">Підсумок</h2>
+            <ul className="space-y-3">
+              <li>
+                <div className=" flex justify-between">
+                  <div>Продукція</div>
+                  <div>&#8372;{itemsPrice}</div>
+                </div>
+              </li>
+              <li>
+                <div className=" flex justify-between">
+                  <div>Податок</div>
+                  <div>&#8372;{taxPrice}</div>
+                </div>
+              </li>
+              <li>
+                <div className=" flex justify-between">
+                  <div>Доставка</div>
+                  <div>&#8372;{shippingPrice}</div>
+                </div>
+              </li>
+              <li>
+                <div className=" flex justify-between">
+                  <div>Разом</div>
+                  <div>&#8372;{totalPrice}</div>
+                </div>
+              </li>
 
-                <li>
-                  <button
-                    onClick={() => placeOrder()}
-                    disabled={isPlacing}
-                    className="btn btn-primary w-full"
-                  >
-                    {isPlacing && (
-                      <span className="loading loading-spinner"></span>
-                    )}
-                    Place Order
-                  </button>
-                </li>
-              </ul>
-            </div>
+              <li>
+                <button
+                  onClick={() => placeOrder()}
+                  disabled={isPlacing}
+                  className="btn btn-primary w-full"
+                >
+                  {isPlacing && (
+                    <span className="loading loading-spinner"></span>
+                  )}
+                  Підтвердити
+                </button>
+              </li>
+            </ul>
           </div>
         </div>
       </div>

@@ -21,13 +21,13 @@ export default function CartDetails() {
   if (!mounted) return <></>;
 
   return (
-    <>
-      <h1 className="py-4 text-2xl">Кошик замовлення</h1>
+    <section className="px-1 md:py-2 xl:py-5 text-xs md:text-sm xl:text-base">
+      <h1 className="py-4 text-lg">Кошик замовлення</h1>
 
       {items.length === 0 ? (
-        <p>
+        <p className="my-6">
           Кошик порожній. Повернутися до{" "}
-          <Link href="/search" className="hover:underline">
+          <Link href="/search" className="font-semibold hover:text-primary">
             Каталогу
           </Link>
         </p>
@@ -82,30 +82,29 @@ export default function CartDetails() {
               </tbody>
             </table>
           </div>
-          <div>
-            <div className="card bg-base-300">
-              <div className="card-body">
-                <ul>
-                  <li>
-                    <div className="pb-3 text-xl">
-                      Проміжний підсумок ({items.reduce((a, c) => a + c.qty, 0)}
-                      ) : &#8372; {itemsPrice}
-                    </div>
-                  </li>
-                  <li>
-                    <button
-                      onClick={() => router.push("/shipping")}
-                      className="btn btn-primary w-full"
-                    >
-                      Перейти до оформлення замовлення
-                    </button>
-                  </li>
-                </ul>
-              </div>
+
+          <div className="card bg-base-300">
+            <div className="card-body">
+              <ul>
+                <li>
+                  <div className="pb-3 text-xl">
+                    Підсумок ({items.reduce((a, c) => a + c.qty, 0)}) : &#8372;{" "}
+                    {itemsPrice}
+                  </div>
+                </li>
+                <li>
+                  <button
+                    onClick={() => router.push("/shipping")}
+                    className="btn btn-primary w-full"
+                  >
+                    Оформити
+                  </button>
+                </li>
+              </ul>
             </div>
           </div>
         </div>
       )}
-    </>
+    </section>
   );
 }

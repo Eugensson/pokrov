@@ -35,26 +35,28 @@ const Form = () => {
       <CheckoutSteps current={2} />
       <div className="max-w-sm mx-auto card bg-base-300 my-4">
         <div className="card-body">
-          <h1 className="card-title">Payment Method</h1>
+          <h1 className="card-title">Метод оплати</h1>
           <form onSubmit={handleSubmit}>
-            {["PayPal", "Stripe", "CashOnDelivery"].map((payment) => (
-              <div key={payment}>
-                <label className="label cursor-pointer">
-                  <span className="label-text">{payment}</span>
-                  <input
-                    type="radio"
-                    name="paymentMethod"
-                    className="radio"
-                    value={payment}
-                    checked={selectedPaymentMethod === payment}
-                    onChange={() => setSelectedPaymentMethod(payment)}
-                  />
-                </label>
-              </div>
-            ))}
+            {["Безготівковий розрахунок", "Готівкою під час доставки"].map(
+              (payment) => (
+                <div key={payment}>
+                  <label className="label cursor-pointer">
+                    <span className="label-text">{payment}</span>
+                    <input
+                      type="radio"
+                      name="paymentMethod"
+                      className="radio"
+                      value={payment}
+                      checked={selectedPaymentMethod === payment}
+                      onChange={() => setSelectedPaymentMethod(payment)}
+                    />
+                  </label>
+                </div>
+              )
+            )}
             <div className="my-2">
               <button type="submit" className="btn btn-primary w-full">
-                Next
+                Далі
               </button>
             </div>
             <div className="my-2">
@@ -63,7 +65,7 @@ const Form = () => {
                 className="btn w-full my-2"
                 onClick={() => router.back()}
               >
-                Back
+                Назад
               </button>
             </div>
           </form>
