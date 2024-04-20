@@ -74,7 +74,6 @@ export default function OrderDetails({
     shippingAddress,
     items,
     itemsPrice,
-    taxPrice,
     shippingPrice,
     totalPrice,
     isDelivered,
@@ -168,12 +167,6 @@ export default function OrderDetails({
                 <div className="mb-2 flex justify-between">
                   <div>Замовлення</div>
                   <div>&#8372;{itemsPrice}</div>
-                </div>
-              </li>
-              <li>
-                <div className="mb-2 flex justify-between">
-                  <div>Податок</div>
-                  <div>&#8372;{taxPrice}</div>
                 </div>
               </li>
               <li>

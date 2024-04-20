@@ -12,7 +12,7 @@ const OurServices = () => {
           <article className="card bg-base-100 hover:shadow-xl">
             <figure>
               <Image
-                src={"/images/domes.jpg"}
+                src={"/images/portfolio/domes.jpg"}
                 alt="Церковний купол"
                 width={275}
                 height={275}
@@ -35,7 +35,7 @@ const OurServices = () => {
           <article className="card bg-base-100 hover:shadow-xl">
             <figure>
               <Image
-                src={"/images/cross.jpg"}
+                src={"/images/portfolio/cross.jpg"}
                 alt="Освяченя церкви"
                 width={275}
                 height={275}
@@ -58,7 +58,7 @@ const OurServices = () => {
           <article className="card bg-base-100 hover:shadow-xl">
             <figure>
               <Image
-                src={"/images/sheets.jpg"}
+                src={"/images/portfolio/sheets.jpg"}
                 alt="Аркуші вкриті нітридом тітану"
                 width={275}
                 height={275}
@@ -81,7 +81,7 @@ const OurServices = () => {
           <article className="card bg-base-100 hover:shadow-xl">
             <figure>
               <Image
-                src={"/images/decor.jpg"}
+                src={"/images/portfolio/decor.jpg"}
                 alt="Декоративні елементи вкриті нітридом тітану"
                 width={275}
                 height={275}

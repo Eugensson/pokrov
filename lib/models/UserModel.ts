@@ -24,7 +24,7 @@ const UserSchema = new Schema(
     },
     isAdmin: { type: Boolean, required: true, default: false },
   },
-  { timestamps: true }
+  { timestamps: true, versionKey: false }
 );
 
 const UserModel = models?.User || model("User", UserSchema);

@@ -92,7 +92,6 @@ export default function Products() {
                 <td className="p-2">{product.name}</td>
                 <td className="p-2">{product.price}</td>
                 <td className="p-2">
-                  {product.category}
                   {product.category === "cross" && "Хрести"}
                   {product.category === "domes" && "Куполи"}
                   {product.category === "sheets" && "Аркуші"}

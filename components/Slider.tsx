@@ -6,6 +6,8 @@ import "swiper/css";
 import "swiper/css/autoplay";
 import "swiper/css/pagination";
 
+import { bannerImages } from "@/constants";
+
 import { Autoplay } from "swiper/modules";
 
 const Slider = () => {
@@ -18,51 +20,17 @@ const Slider = () => {
       slidesPerView={1}
       className="h-auto w-full"
     >
-      <SwiperSlide>
-        <Image
-          priority
-          src={"/images/banner_1.jpg"}
-          alt="Slider Image 1"
-          width={1920}
-          height={1080}
-        />
-      </SwiperSlide>
-      <SwiperSlide>
-        <Image
-          priority
-          src={"/images/banner_2.jpg"}
-          alt="Slider Image 2"
-          width={1920}
-          height={1080}
-        />
-      </SwiperSlide>
-      <SwiperSlide>
-        <Image
-          priority
-          src={"/images/banner_3.jpg"}
-          alt="Slider Image 3"
-          width={1920}
-          height={1080}
-        />
-      </SwiperSlide>
-      <SwiperSlide>
-        <Image
-          priority
-          src={"/images/banner_4.jpg"}
-          alt="Slider Image 4"
-          width={1920}
-          height={1080}
-        />
-      </SwiperSlide>
-      <SwiperSlide>
-        <Image
-          priority
-          src={"/images/banner_5.jpg"}
-          alt="Slider Image 5"
-          width={1920}
-          height={1080}
-        />
-      </SwiperSlide>
+      {bannerImages.map(({ imageURL }, index) => (
+        <SwiperSlide key={index}>
+          <Image
+            priority
+            src={imageURL}
+            alt="Світлина Храму"
+            width={1920}
+            height={1080}
+          />
+        </SwiperSlide>
+      ))}
     </Swiper>
   );
 };

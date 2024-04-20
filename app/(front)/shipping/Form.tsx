@@ -24,7 +24,6 @@ const Form = () => {
       address: "",
       city: "",
       postalCode: "",
-      country: "",
     },
   });
 
@@ -33,7 +32,6 @@ const Form = () => {
     setValue("address", shippingAddress.address);
     setValue("city", shippingAddress.city);
     setValue("postalCode", shippingAddress.postalCode);
-    setValue("country", shippingAddress.country);
   }, [setValue, shippingAddress]);
 
   const formSubmit: SubmitHandler<ShippingAddress> = async (form) => {
@@ -79,10 +77,9 @@ const Form = () => {
           <h1 className="card-title mx-auto">Адреса доставки</h1>
           <form onSubmit={handleSubmit(formSubmit)}>
             <FormInput name="П.І.Б." id="fullName" required />
-            <FormInput name="Адреса" id="address" required />
-            <FormInput name="Місто" id="city" required />
             <FormInput name="Індекс" id="postalCode" required />
-            <FormInput name="Країна" id="country" required />
+            <FormInput name="Місто" id="city" required />
+            <FormInput name="Адреса" id="address" required />
             <div className="my-5">
               <button
                 type="submit"

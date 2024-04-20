@@ -5,7 +5,7 @@ const CategoryGalleryPage = async ({ params }: { params: any }) => {
   const images = await getImagesByCategory(params.category);
 
   return (
-    <section className="p-1 md:pd-2 xl:p-10">
+    <section>
       <PortfolioSlider images={images} />
     </section>
   );

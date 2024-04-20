@@ -17,7 +17,7 @@ export const POST = auth(async (req: any) => {
     {
       timestamp: timestamp,
     },
-    process.env.CLOUDINARY_API_SECRET!
+    process.env.CLOUDINARY_SECRET!
   );
 
   return Response.json({ signature, timestamp });

@@ -26,13 +26,11 @@ const orderSchema = new Schema(
       address: { type: String, required: true },
       city: { type: String, required: true },
       postalCode: { type: String, required: true },
-      country: { type: String, required: true },
     },
     paymentMethod: { type: String, required: true },
     paymentResult: { id: String, status: String, email_address: String },
     itemsPrice: { type: Number, required: true },
     shippingPrice: { type: Number, required: true },
-    taxPrice: { type: Number, required: true },
     totalPrice: { type: Number, required: true },
     isPaid: { type: Boolean, required: true, default: false },
     isDelivered: { type: Boolean, required: true, default: false },
@@ -41,8 +39,10 @@ const orderSchema = new Schema(
   },
   {
     timestamps: true,
+    versionKey: false,
   }
 );
+
 const OrderModel = models.Order || model("Order", orderSchema);
 
 export default OrderModel;
@@ -62,7 +62,6 @@ export type Order = {
   paymentResult?: { id: string; status: string; email_address: string };
   itemsPrice: number;
   shippingPrice: number;
-  taxPrice: number;
   totalPrice: number;
   isPaid: boolean;
   isDelivered: boolean;
@@ -86,5 +85,4 @@ export type ShippingAddress = {
   address: string;
   city: string;
   postalCode: string;
-  country: string;
 };

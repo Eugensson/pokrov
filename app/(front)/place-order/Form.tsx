@@ -18,7 +18,6 @@ const Form = () => {
     shippingAddress,
     items,
     itemsPrice,
-    taxPrice,
     shippingPrice,
     totalPrice,
     clear,
@@ -37,7 +36,6 @@ const Form = () => {
           shippingAddress,
           items,
           itemsPrice,
-          taxPrice,
           shippingPrice,
           totalPrice,
         }),
@@ -82,7 +80,7 @@ const Form = () => {
               <p>{shippingAddress.fullName}</p>
               <p>
                 {shippingAddress.address}, {shippingAddress.city},{" "}
-                {shippingAddress.postalCode}, {shippingAddress.country}{" "}
+                {shippingAddress.postalCode}
               </p>
               <div>
                 <Link className="btn" href="/shipping">
@@ -159,12 +157,6 @@ const Form = () => {
                 <div className=" flex justify-between">
                   <div>Продукція</div>
                   <div>&#8372;{itemsPrice}</div>
-                </div>
-              </li>
-              <li>
-                <div className=" flex justify-between">
-                  <div>Податок</div>
-                  <div>&#8372;{taxPrice}</div>
                 </div>
               </li>
               <li>

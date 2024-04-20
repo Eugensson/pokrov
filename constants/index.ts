@@ -25,6 +25,14 @@ export const mainLinks = [
   },
 ];
 
+export const bannerImages = [
+  { imageURL: "/images/hero/1.jpg" },
+  { imageURL: "/images/hero/2.jpg" },
+  { imageURL: "/images/hero/3.jpg" },
+  { imageURL: "/images/hero/4.jpg" },
+  { imageURL: "/images/hero/5.jpg" },
+];
+
 export const testimonials = [
   {
     quote:

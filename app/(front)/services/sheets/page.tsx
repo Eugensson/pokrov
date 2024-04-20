@@ -7,7 +7,7 @@ const page = () => {
         <div
           className="w-full h-[100px] md:h-[250px] xl:h-[550px] bg-cover rounded-md"
           style={{
-            backgroundImage: "url('/sheets.jpg')",
+            backgroundImage: "url('/images/services/sheets.jpg')",
             backgroundPosition: "25% 15%",
           }}
         ></div>

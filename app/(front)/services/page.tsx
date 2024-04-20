@@ -8,7 +8,7 @@ const page = () => {
         <div
           className="w-full h-[100px] md:h-[250px] xl:h-[550px] bg-cover rounded-md"
           style={{
-            backgroundImage: "url('/services.jpg')",
+            backgroundImage: "url('/images/services/services.jpg')",
             backgroundPosition: "top",
           }}
         ></div>

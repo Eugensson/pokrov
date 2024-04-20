@@ -12,7 +12,7 @@ const page = () => {
           <article className="card bg-base-100 rounded-md shadow-xl">
             <figure>
               <Image
-                src="/images/domes.jpg"
+                src="/images/portfolio/domes.jpg"
                 alt="Купол церковний"
                 width={275}
                 height={275}
@@ -33,7 +33,7 @@ const page = () => {
           <article className="card bg-base-100 rounded-md shadow-xl">
             <figure>
               <Image
-                src="/images/cross.jpg"
+                src="/images/portfolio/cross.jpg"
                 alt="Процес освячення церкви"
                 width={275}
                 height={275}
@@ -54,7 +54,7 @@ const page = () => {
           <article className="card bg-base-100 rounded-md shadow-xl">
             <figure>
               <Image
-                src="/images/sheets.jpg"
+                src="/images/portfolio/sheets.jpg"
                 alt="Аркуші із нержавіючої сталі"
                 width={275}
                 height={275}
@@ -77,7 +77,7 @@ const page = () => {
           <article className="card bg-base-100 rounded-md shadow-xl">
             <figure>
               <Image
-                src="/images/decor.jpg"
+                src="/images/portfolio/decor.jpg"
                 alt="Декоративні елементи з нанесеним покриттям"
                 width={275}
                 height={275}

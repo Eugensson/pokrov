@@ -67,7 +67,6 @@ export default async function ProductDetails({
               caption={`${product.numReviews} відгуків`}
             />
           </li>
-          <li> {product.brand}</li>
           <li>
             <div className="divider"></div>
           </li>

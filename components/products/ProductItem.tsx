@@ -8,18 +8,18 @@ import { Rating } from "@/components/products/Rating";
 export default function ProductItem({ product }: { product: Product }) {
   return (
     <article className="card bg-base-100 shadow-xl">
-      <figure>
+      <figure className="overflow-hidden w-full h-[316px] bg-base-300">
         <Link href={`/product/${product.slug}`}>
           <Image
             src={product.image}
             alt={product.name}
-            width={275}
-            height={275}
-            className="object-cover w-full"
+            width={200}
+            height={200}
+            className="object-contain w-full"
           />
         </Link>
       </figure>
-      <div className="card-body">
+      <div className="card-body gap-4">
         <Link href={`/product/${product.slug}`}>
           <h2 className="card-title font-normal">{product.name}</h2>
         </Link>

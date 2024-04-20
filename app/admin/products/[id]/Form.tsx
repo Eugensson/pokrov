@@ -121,10 +121,10 @@ export default function ProductEditForm({ productId }: { productId: string }) {
 
       formData.append("timestamp", timestamp);
 
-      formData.append("api_key", process.env.CLOUDINARY_API_KEY!);
+      formData.append("api_key", process.env.NEXT_PUBLIC_CLOUDINARY_API_KEY!);
 
       const res = await fetch(
-        `https://api.cloudinary.com/v1_1/${process.env.CLOUDINARY_CLOUD_NAME}/upload`,
+        `https://api.cloudinary.com/v1_1/${process.env.NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME}/upload`,
         {
           method: "POST",
           body: formData,
@@ -132,8 +132,6 @@ export default function ProductEditForm({ productId }: { productId: string }) {
       );
 
       const data = await res.json();
-
-      console.log("cloudinaryURL", data.secure_url);
 
       setValue("image", data.secure_url);
 
