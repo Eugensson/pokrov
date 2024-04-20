@@ -1,11 +1,14 @@
 "use client";
-import { Product } from "@/lib/models/ProductModel";
-import { formatId } from "@/lib/utils";
-import Link from "next/link";
-import { useRouter } from "next/navigation";
-import toast from "react-hot-toast";
+
 import useSWR from "swr";
+import Link from "next/link";
+import toast from "react-hot-toast";
 import useSWRMutation from "swr/mutation";
+import { useRouter } from "next/navigation";
+import { MdEdit, MdDeleteForever } from "react-icons/md";
+
+import { formatId } from "@/lib/utils";
+import { Product } from "@/lib/models/ProductModel";
 
 export default function Products() {
   const { data: products, error } = useSWR(`/api/admin/products`);
@@ -15,16 +18,18 @@ export default function Products() {
   const { trigger: deleteProduct } = useSWRMutation(
     `/api/admin/products`,
     async (url, { arg }: { arg: { productId: string } }) => {
-      const toastId = toast.loading("Deleting product...");
+      const toastId = toast.loading("Видалення продукту...");
+
       const res = await fetch(`${url}/${arg.productId}`, {
         method: "DELETE",
         headers: {
           "Content-Type": "application/json",
         },
       });
+
       const data = await res.json();
       res.ok
-        ? toast.success("Product deleted successfully", {
+        ? toast.success("Продукт успішно видалено", {
             id: toastId,
           })
         : toast.error(data.message, {
@@ -45,18 +50,19 @@ export default function Products() {
       const data = await res.json();
       if (!res.ok) return toast.error(data.message);
 
-      toast.success("Product created successfully");
+      toast.success("Продукт створено");
       router.push(`/admin/products/${data.product._id}`);
     }
   );
 
-  if (error) return "An error has occurred.";
-  if (!products) return "Loading...";
+  if (error) return "Сталася помилка.";
+
+  if (!products) return "Завантаження...";
 
   return (
-    <div>
+    <section className="py-1 md:py-2 xl:py-5">
       <div className="flex justify-between items-center">
-        <h1 className="py-4 text-2xl font-bold">Продукція</h1>
+        <h1 className="py-4 text-xl font-bold">Продукція</h1>
         <button
           disabled={isCreating}
           onClick={() => createProduct()}
@@ -69,36 +75,37 @@ export default function Products() {
 
       <div className="overflow-x-auto">
         <table className="table table-zebra">
-          <thead className="text-sm font-bold uppercase">
+          <thead className="font-bold text-xs xl:text-base uppercase">
             <tr>
-              <th>Id</th>
-              <th>Найменування товару</th>
-              <th>Ціна, &#8372;</th>
-              <th>Категорія</th>
-              <th>Кількість на складі</th>
-              <th>Дії</th>
+              <th className="p-2">Id</th>
+              <th className="p-2">Найменування товару</th>
+              <th className="p-2">Ціна, &#8372;</th>
+              <th className="p-2">Категорія</th>
+              <th className="p-2">Кількість</th>
+              <th className="p-2">Додатково</th>
             </tr>
           </thead>
-          <tbody>
+          <tbody className="text-xs xl:text-base">
             {products.map((product: Product) => (
               <tr key={product._id}>
-                <td>{formatId(product._id!)}</td>
-                <td>{product.name}</td>
-                <td>{product.price}</td>
-                <td>
+                <td className="p-2">{formatId(product._id!)}</td>
+                <td className="p-2">{product.name}</td>
+                <td className="p-2">{product.price}</td>
+                <td className="p-2">
+                  {product.category}
                   {product.category === "cross" && "Хрести"}
                   {product.category === "domes" && "Куполи"}
                   {product.category === "sheets" && "Аркуші"}
                   {product.category === "decor" && "Декор"}
                 </td>
-                <td>{product.countInStock}</td>
-                <td>
+                <td className="p-2">{product.countInStock}</td>
+                <td className="p-2">
                   <Link
                     href={`/admin/products/${product._id}`}
                     type="button"
                     className="btn btn-ghost btn-sm"
                   >
-                    Редагувати
+                    <MdEdit className="w-5 h-5" />
                   </Link>
                   &nbsp;
                   <button
@@ -106,7 +113,7 @@ export default function Products() {
                     type="button"
                     className="btn btn-ghost btn-sm"
                   >
-                    Видалити
+                    <MdDeleteForever className="w-5 h-5" />
                   </button>
                 </td>
               </tr>
@@ -114,6 +121,6 @@ export default function Products() {
           </tbody>
         </table>
       </div>
-    </div>
+    </section>
   );
 }

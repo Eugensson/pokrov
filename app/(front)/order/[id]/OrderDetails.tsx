@@ -19,6 +19,7 @@ export default function OrderDetails({
 }) {
   const { trigger: deliverOrder, isMutating: isDelivering } = useSWRMutation(
     `/api/orders/${orderId}`,
+
     async (url) => {
       const res = await fetch(`/api/admin/orders/${orderId}/deliver`, {
         method: "PUT",
@@ -26,7 +27,9 @@ export default function OrderDetails({
           "Content-Type": "application/json",
         },
       });
+
       const data = await res.json();
+
       res.ok
         ? toast.success("Замовлення прийнято!")
         : toast.error(data.message);
@@ -64,7 +67,7 @@ export default function OrderDetails({
 
   if (error) return error.message;
 
-  if (!data) return "Loading...";
+  if (!data) return "Завантаження...";
 
   const {
     paymentMethod,
@@ -81,13 +84,13 @@ export default function OrderDetails({
   } = data;
 
   return (
-    <div>
-      <h1 className="text-2xl py-4">Order {orderId}</h1>
-      <div className="grid md:grid-cols-4 md:gap-5 my-4">
-        <div className="md:col-span-3">
+    <div className="p-1">
+      <h1 className="text-base font-bold py-4">Замовлення №: {orderId}</h1>
+      <div className="grid md:grid-cols-6 gap-4 xl:grid-cols-4 xl:gap-5 my-4">
+        <div className="md:col-span-4 xl:col-span-3">
           <div className="card bg-base-300">
-            <div className="card-body">
-              <h2 className="card-title">Адреса доставки</h2>
+            <div className="card-body p-4">
+              <h2 className="card-title text-base">Адреса доставки</h2>
               <p>{shippingAddress.fullName}</p>
               <p>
                 {shippingAddress.address}, {shippingAddress.city},{" "}
@@ -96,38 +99,42 @@ export default function OrderDetails({
               {isDelivered ? (
                 <div className="text-success">Доставка {deliveredAt}</div>
               ) : (
-                <div className="text-error">Самовивіз</div>
+                <div className="text-success">Самовивіз</div>
               )}
             </div>
           </div>
 
           <div className="card bg-base-300 mt-4">
-            <div className="card-body">
-              <h2 className="card-title">Спосіб оплати</h2>
+            <div className="card-body p-4">
+              <h2 className="card-title text-base">Спосіб оплати</h2>
               <p>{paymentMethod}</p>
-              {isPaid ? (
-                <div className="text-success">Paid at {paidAt}</div>
+              {paymentMethod ? (
+                <div className="text-success">
+                  На рахунок згідно рахунку-фактури
+                </div>
               ) : (
-                <div className="text-error">Not Paid</div>
+                <div className="text-success">
+                  Кур&apos;єру під час доставки
+                </div>
               )}
             </div>
           </div>
 
           <div className="card bg-base-300 mt-4">
-            <div className="card-body">
-              <h2 className="card-title">Відомості про замовлення</h2>
+            <div className="card-body p-4">
+              <h2 className="card-title text-base">Відомості про замовлення</h2>
               <table className="table">
-                <thead>
+                <thead className="text-xs xl:text-base">
                   <tr>
-                    <th>Замовлення</th>
-                    <th>Кількість</th>
-                    <th>Ціна</th>
+                    <th className="p-2">Замовлення</th>
+                    <th className="p-2">Кількість</th>
+                    <th className="p-2">Ціна</th>
                   </tr>
                 </thead>
-                <tbody>
+                <tbody className="text-xs xl:text-base">
                   {items.map((item: OrderItem) => (
                     <tr key={item.slug}>
-                      <td>
+                      <td className="p-2">
                         <Link
                           href={`/product/${item.slug}`}
                           className="flex items-center"
@@ -143,8 +150,8 @@ export default function OrderDetails({
                           </span>
                         </Link>
                       </td>
-                      <td>{item.qty}</td>
-                      <td>&#8372; {item.price}</td>
+                      <td className="p-2">{item.qty}</td>
+                      <td className="p-2">&#8372; {item.price}</td>
                     </tr>
                   ))}
                 </tbody>
@@ -153,64 +160,50 @@ export default function OrderDetails({
           </div>
         </div>
 
-        <div>
-          <div className="card bg-base-300">
-            <div className="card-body">
-              <h2 className="card-title">Підсумок замовлення</h2>
-              <ul>
-                <li>
-                  <div className="mb-2 flex justify-between">
-                    <div>Замовлення</div>
-                    <div>&#8372;{itemsPrice}</div>
-                  </div>
-                </li>
-                <li>
-                  <div className="mb-2 flex justify-between">
-                    <div>Податок</div>
-                    <div>&#8372;{taxPrice}</div>
-                  </div>
-                </li>
-                <li>
-                  <div className="mb-2 flex justify-between">
-                    <div>Вартість доставки</div>
-                    <div>&#8372;{shippingPrice}</div>
-                  </div>
-                </li>
-                <li>
-                  <div className="mb-2 flex justify-between">
-                    <div>Підсумкова вартість</div>
-                    <div>&#8372;{totalPrice}</div>
-                  </div>
-                </li>
+        <div className="card bg-base-300 md:col-span-2 xl:col-span-1">
+          <div className="card-body p-4">
+            <h2 className="card-title text-base">Підсумок замовлення</h2>
+            <ul>
+              <li>
+                <div className="mb-2 flex justify-between">
+                  <div>Замовлення</div>
+                  <div>&#8372;{itemsPrice}</div>
+                </div>
+              </li>
+              <li>
+                <div className="mb-2 flex justify-between">
+                  <div>Податок</div>
+                  <div>&#8372;{taxPrice}</div>
+                </div>
+              </li>
+              <li>
+                <div className="mb-2 flex justify-between">
+                  <div>Доставка</div>
+                  <div>&#8372;{shippingPrice}</div>
+                </div>
+              </li>
+              <li>
+                <div className="mb-2 flex justify-between">
+                  <div>Разом</div>
+                  <div>&#8372;{totalPrice}</div>
+                </div>
+              </li>
 
-                {!isPaid && paymentMethod === "PayPal" && (
-                  <li>
-                    <PayPalScriptProvider
-                      options={{ clientId: paypalClientId }}
-                    >
-                      <PayPalButtons
-                        createOrder={createPayPalOrder}
-                        onApprove={onApprovePayPalOrder}
-                      />
-                    </PayPalScriptProvider>
-                  </li>
-                )}
-                {session?.user.isAdmin && (
-                  <li>
-                    <button
-                      className="btn w-full my-2"
-                      onClick={() => deliverOrder()}
-                      disabled={isDelivering}
-                    >
-                      {isDelivering && (
-                        <span className="loading loading-spinner"></span>
-                      )}
-                      Позначити як доставлене
-                    </button>
-                  </li>
-                )}
-              </ul>
-            </div>
+              {session?.user.isAdmin && (
+                <li>
+                  <button
+                    className="btn w-full my-2"
+                    onClick={() => deliverOrder()}
+                    disabled={isDelivering}
+                  >
+                    {isDelivering && (
+                      <span className="loading loading-spinner"></span>
+                    )}
+                    Доставлено
+                  </button>
+                </li>
+              )}
+            </ul>
           </div>
         </div>
       </div>

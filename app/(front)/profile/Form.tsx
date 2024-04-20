@@ -1,10 +1,11 @@
 "use client";
 
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import toast from "react-hot-toast";
 import { useRouter } from "next/navigation";
 import { useSession } from "next-auth/react";
 import { SubmitHandler, useForm } from "react-hook-form";
+import { FaRegEye, FaRegEyeSlash } from "react-icons/fa";
 
 type Inputs = {
   name: string;
@@ -14,9 +15,11 @@ type Inputs = {
 };
 
 const Form = () => {
+  const router = useRouter();
+
   const { data: session, update } = useSession();
 
-  const router = useRouter();
+  const [isVisiblePass, setIsVisiblePass] = useState(false);
 
   const {
     register,
@@ -56,7 +59,7 @@ const Form = () => {
       });
 
       if (res.status === 200) {
-        toast.success("Profile updated successfully");
+        toast.success("Профіль успішно оновлено");
 
         const newSession = {
           ...session,
@@ -71,7 +74,7 @@ const Form = () => {
       } else {
         const data = await res.json();
 
-        toast.error(data.message || "error");
+        toast.error(data.message || "Помилка");
       }
     } catch (err: any) {
       const error =
@@ -82,27 +85,33 @@ const Form = () => {
       toast.error(error);
     }
   };
+
+  const toggleVisblePass = () => setIsVisiblePass((prev) => !prev);
+
   return (
-    <div className="max-w-sm  mx-auto card bg-base-300 my-4">
+    <div className="max-w-sm mx-auto card bg-base-300 my-4">
       <div className="card-body">
-        <h1 className="card-title">Profile</h1>
+        <h1 className="card-title">Профіль</h1>
         <form onSubmit={handleSubmit(formSubmit)}>
           <div className="my-2">
             <label className="label" htmlFor="name">
-              Name
+              Ім&apos;я
             </label>
             <input
               type="text"
               id="name"
               {...register("name", {
-                required: "Name is required",
+                required: "Ім'я обов'язкове поле",
               })}
               className="input input-bordered w-full max-w-sm"
             />
             {errors.name?.message && (
-              <div className="text-error">{errors.name.message}</div>
+              <div className="text-error text-xs mt-2">
+                {errors.name.message}
+              </div>
             )}
           </div>
+
           <div className="my-2">
             <label className="label" htmlFor="email">
               Email
@@ -111,49 +120,72 @@ const Form = () => {
               type="text"
               id="email"
               {...register("email", {
-                required: "Email is required",
+                required: "Email обов'язкове поле",
                 pattern: {
                   value: /[a-z0-9]+@[a-z]+\.[a-z]{2,3}/,
-                  message: "Email is invalid",
+                  message: "Email хибний",
                 },
               })}
               className="input input-bordered w-full max-w-sm"
             />
             {errors.email?.message && (
-              <div className="text-error">{errors.email.message}</div>
+              <div className="text-error text-xs mt-2">
+                {errors.email.message}
+              </div>
             )}
           </div>
-          <div className="my-2">
+
+          <div className="my-2 relative">
             <label className="label" htmlFor="password">
-              New Password
+              Новий пароль
             </label>
             <input
-              type="password"
+              type={isVisiblePass ? "text" : "password"}
               id="password"
+              placeholder="******"
+              autoComplete="off"
               {...register("password", {})}
               className="input input-bordered w-full max-w-sm"
             />
+            {isVisiblePass ? (
+              <FaRegEyeSlash
+                className="absolute bottom-4 right-4 w-4 h-4 cursor-pointer"
+                onClick={toggleVisblePass}
+              />
+            ) : (
+              <FaRegEye
+                className="absolute bottom-4 right-4 w-4 h-4 cursor-pointer text-neutral/75"
+                onClick={toggleVisblePass}
+              />
+            )}
             {errors.password?.message && (
-              <div className="text-error">{errors.password.message}</div>
+              <div className="text-error text-xs mt-2">
+                {errors.password.message}
+              </div>
             )}
           </div>
-          <div className="my-2">
+
+          <div className="my-2 relative">
             <label className="label" htmlFor="confirmPassword">
-              Confirm New Password
+              Підтвердження паролю
             </label>
             <input
-              type="password"
+              type={isVisiblePass ? "text" : "password"}
               id="confirmPassword"
+              placeholder="******"
+              autoComplete="off"
               {...register("confirmPassword", {
                 validate: (value) => {
                   const { password } = getValues();
-                  return password === value || "Passwords should match!";
+                  return password === value || "Паролі повинні співпадати!";
                 },
               })}
               className="input input-bordered w-full max-w-sm"
             />
             {errors.confirmPassword?.message && (
-              <div className="text-error">{errors.confirmPassword.message}</div>
+              <div className="text-error text-xs mt-2">
+                {errors.confirmPassword.message}
+              </div>
             )}
           </div>
 
@@ -161,12 +193,12 @@ const Form = () => {
             <button
               type="submit"
               disabled={isSubmitting}
-              className="btn btn-primary w-full"
+              className="btn btn-primary w-full mt-5"
             >
               {isSubmitting && (
                 <span className="loading loading-spinner"></span>
               )}
-              Update
+              Оновити
             </button>
           </div>
         </form>

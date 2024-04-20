@@ -52,7 +52,7 @@ const Dashboard = () => {
     datasets: [
       {
         fill: true,
-        label: "Sales",
+        label: "Продажі",
         data: summary.salesData.map(
           (x: { totalSales: number }) => x.totalSales
         ),
@@ -61,6 +61,7 @@ const Dashboard = () => {
       },
     ],
   };
+
   const ordersData = {
     labels: summary.salesData.map((x: { _id: string }) => x._id),
     datasets: [
@@ -75,6 +76,7 @@ const Dashboard = () => {
       },
     ],
   };
+
   const productsData = {
     labels: summary.productsData.map((x: { _id: string }) => x._id),
     datasets: [
@@ -102,6 +104,7 @@ const Dashboard = () => {
       },
     ],
   };
+
   const usersData = {
     labels: summary.usersData.map((x: { _id: string }) => x._id),
     datasets: [
@@ -117,8 +120,8 @@ const Dashboard = () => {
   };
 
   return (
-    <div>
-      <div className="my-4 stats inline-grid md:flex  shadow stats-vertical   md:stats-horizontal">
+    <section className="py-1 md:py-2 xl:py-5">
+      <div className="my-4 stats inline-grid md:flex shadow stats-vertical md:stats-horizontal">
         <div className="stat">
           <div className="stat-title">Продажі</div>
           <div className="stat-value text-primary">
@@ -152,27 +155,27 @@ const Dashboard = () => {
       </div>
       <div className="grid md:grid-cols-2 gap-4">
         <div>
-          <h2 className="text-xl py-2">Статистика з продажу</h2>
+          <h2 className="xl:text-xl py-2">Статистика з продажу</h2>
           <Line data={salesData} />
         </div>
         <div>
-          <h2 className="text-xl py-2">Статистика із замовлень</h2>
+          <h2 className="xl:text-xl py-2">Статистика із замовлень</h2>
           <Line data={ordersData} />
         </div>
       </div>
       <div className="grid md:grid-cols-2 gap-4">
         <div>
-          <h2 className="text-xl py-2">Статистика із перегляду продукції</h2>
-          <div className="flex items-center justify-center h-80 w-96 ">
+          <h2 className="xl:text-xl py-2">Статистика із перегляду продукції</h2>
+          <div className="flex items-center justify-center h-48 w-58 xl:h-80 xl:w-96 ">
             <Doughnut data={productsData} />
           </div>
         </div>
         <div>
-          <h2 className="text-xl py-2">Статистика по відвідувачам</h2>
+          <h2 className="xl:text-xl py-2">Статистика по відвідувачам</h2>
           <Bar data={usersData} />
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 

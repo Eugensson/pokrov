@@ -8,9 +8,9 @@ export const metadata: Metadata = {
 
 export default function OrderHistory() {
   return (
-    <>
-      <h1 className="text-2xl py-2">Історія замовлень</h1>
+    <section className="p-1">
+      <h1 className="py-4 text-xl font-bold">Історія замовлень</h1>
       <MyOrders />
-    </>
+    </section>
   );
 }

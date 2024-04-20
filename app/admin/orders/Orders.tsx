@@ -1,7 +1,9 @@
 "use client";
-import { Order } from "@/lib/models/OrderModel";
-import Link from "next/link";
+
 import useSWR from "swr";
+import Link from "next/link";
+
+import { Order } from "@/lib/models/OrderModel";
 
 export default function Orders() {
   const { data: orders, error } = useSWR(`/api/admin/orders`);
@@ -9,41 +11,42 @@ export default function Orders() {
   if (!orders) return "Loading...";
 
   return (
-    <div>
-      <h1 className="py-4 text-2xl font-bold">Замовлення</h1>
+    <section className="py-1 md:py-2 xl:py-5">
+      <h1 className="py-4 text-xl font-bold">Замовлення</h1>
+
       <div className="overflow-x-auto">
         <table className="table">
-          <thead className="text-sm font-bold uppercase">
+          <thead className="font-bold text-xs xl:text-base uppercase">
             <tr>
-              <th>Id</th>
-              <th>Користувач</th>
-              <th>Дата</th>
-              <th>Разом</th>
-              <th>Оплата</th>
-              <th>Доставка</th>
-              <th>Дії</th>
+              <th className="p-2">Id</th>
+              <th className="p-2">Користувач</th>
+              <th className="p-2">Дата</th>
+              <th className="p-2">Сума</th>
+              <th className="p-2">Оплата</th>
+              <th className="p-2">Доставка</th>
+              <th className="p-2">Додатково</th>
             </tr>
           </thead>
-          <tbody>
+          <tbody className="text-xs xl:text-base">
             {orders.map((order: Order) => (
               <tr key={order._id}>
-                <td>..{order._id.substring(20, 24)}</td>
-                <td>{order.user?.name || "Deleted user"}</td>
-                <td>{order.createdAt.substring(0, 10)}</td>
-                <td>${order.totalPrice}</td>
-                <td>
+                <td className="p-2">..{order._id.substring(20, 24)}</td>
+                <td className="p-2">{order.user?.name || "Видалити"}</td>
+                <td className="p-2">{order.createdAt.substring(0, 10)}</td>
+                <td className="p-2">&#8372; {order.totalPrice}</td>
+                <td className="p-2">
                   {order.isPaid && order.paidAt
                     ? `${order.paidAt.substring(0, 10)}`
-                    : "not paid"}
+                    : "Не оплачено"}
                 </td>
-                <td>
+                <td className="p-2">
                   {order.isDelivered && order.deliveredAt
                     ? `${order.deliveredAt.substring(0, 10)}`
-                    : "not delivered"}
+                    : "Самовивіз"}
                 </td>
-                <td>
+                <td className="p-2">
                   <Link href={`/order/${order._id}`} passHref>
-                    Details
+                    Деталі
                   </Link>
                 </td>
               </tr>
@@ -51,6 +54,6 @@ export default function Orders() {
           </tbody>
         </table>
       </div>
-    </div>
+    </section>
   );
 }

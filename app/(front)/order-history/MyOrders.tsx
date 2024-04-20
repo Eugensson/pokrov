@@ -20,38 +20,38 @@ export default function MyOrders() {
 
   if (!mounted) return <></>;
 
-  if (error) return "An error has occurred.";
+  if (error) return "Сталася помилка.";
 
-  if (!orders) return "Loading...";
+  if (!orders) return "Завантаження...";
 
   return (
     <div className="overflow-x-auto">
       <table className="table">
-        <thead>
+        <thead className="font-bold text-xs xl:text-base uppercase">
           <tr className="text-md uppercase">
-            <th>Ідентифікатор</th>
-            <th>Дата</th>
-            <th>Разом</th>
-            <th>Оплата</th>
-            <th>Доставка</th>
-            <th>Дії</th>
+            <th className="p-2">Ідентифікатор</th>
+            <th className="p-2">Дата</th>
+            <th className="p-2">Сума</th>
+            <th className="p-2">Оплата</th>
+            <th className="p-2">Доставка</th>
+            <th className="p-2">Додатково</th>
           </tr>
         </thead>
-        <tbody>
+        <tbody className="text-xs xl:text-base">
           {orders.map((order: Order) => (
             <tr key={order._id}>
-              <td>{order._id.substring(20, 24)}</td>
-              <td>{order.createdAt.substring(0, 10)}</td>
-              <td>${order.totalPrice}</td>
-              <td>
+              <td className="p-2">{order._id.substring(20, 24)}</td>
+              <td className="p-2">{order.createdAt.substring(0, 10)}</td>
+              <td className="p-2">&#8372; {order.totalPrice}</td>
+              <td className="p-2">
                 {order.isPaid && order.paidAt
                   ? `${order.paidAt.substring(0, 10)}`
-                  : "not paid"}
+                  : "Не оплачено"}
               </td>
-              <td>
+              <td className="p-2">
                 {order.isDelivered && order.deliveredAt
                   ? `${order.deliveredAt.substring(0, 10)}`
-                  : "not delivered"}
+                  : "Самовивіз"}
               </td>
               <td>
                 <Link href={`/order/${order._id}`} passHref>
