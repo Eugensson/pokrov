@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { ThemeProvider } from "next-themes";
-import { Inter, Jost } from "next/font/google";
+import { Inter, Comfortaa } from "next/font/google";
 import { SessionProvider } from "next-auth/react";
 
 import { Toaster } from "@/components/ui/sonner";
@@ -16,10 +16,10 @@ const inter = Inter({
   variable: "--font-inter",
 });
 
-const jost = Jost({
+const comfortaa = Comfortaa({
   subsets: ["latin", "cyrillic"],
-  weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
-  variable: "--font-jost",
+  weight: ["300", "400", "500", "600", "700"],
+  variable: "--font-comfortaa",
 });
 
 export const metadata: Metadata = {
@@ -37,7 +37,7 @@ export default async function RootLayout({
   return (
     <SessionProvider session={session}>
       <html lang="en" suppressHydrationWarning>
-        <body className={cn(inter.variable, jost.variable)}>
+        <body className={cn(inter.variable, comfortaa.variable)}>
           <ThemeProvider
             attribute="class"
             defaultTheme="system"

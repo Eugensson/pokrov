@@ -22,7 +22,7 @@ const config = {
     },
     fontFamily: {
       primary: "var(--font-inter)",
-      secondary: "var(--font-jost)",
+      secondary: "var(--font-comfortaa)",
     },
     extend: {
       colors: {

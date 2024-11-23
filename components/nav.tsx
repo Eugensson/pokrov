@@ -22,7 +22,7 @@ export const Nav = ({ className }: NavProps) => {
             <Link
               href={src}
               className={cn(
-                "uppercase tracking-widest hover:text-muted-foreground transition-colors",
+                "uppercase font-bold tracking-widest hover:text-muted-foreground transition-colors",
                 pathname === src && "text-muted-foreground",
                 className
               )}
