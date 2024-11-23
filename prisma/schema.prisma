@@ -23,6 +23,7 @@ model User {
   accounts              Account[]
   isTwoFactorEnabled    Boolean                @default(false)
   twoFactorConfirmation TwoFactorConfirmation?
+  Order                 Order[]
 }
 
 model Account {
@@ -80,4 +81,76 @@ model TwoFactorConfirmation {
   user   User   @relation(fields: [userId], references: [id], onDelete: Cascade)
 
   @@unique([userId])
+}
+
+model Product {
+  id           String      @id @default(auto()) @map("_id") @db.ObjectId
+  name         String
+  slug         String      @unique
+  category     String
+  images       String[]    @default([])
+  price        Int         @default(0)
+  discount     Int         @default(0)
+  brand        String
+  rating       Int         @default(0)
+  numReviews   Int         @default(0)
+  countInStock Int         @default(0)
+  description  String
+  isFeatured   Boolean     @default(false)
+  colors       String[]
+  sizes        String[]
+  banner       String?
+  createdAt    DateTime    @default(now())
+  updatedAt    DateTime    @updatedAt
+  OrderItem    OrderItem[]
+}
+
+model Order {
+  id            String         @id @default(auto()) @map("_id") @db.ObjectId
+  userId        String         @db.ObjectId
+  user          User           @relation(fields: [userId], references: [id], onDelete: Cascade)
+  itemsPrice    Float          @default(0.0)
+  shippingPrice Float          @default(0.0)
+  taxPrice      Float          @default(0.0)
+  totalPrice    Float          @default(0.0)
+  fullName      String
+  address       String
+  city          String
+  region        String
+  postalCode    String
+  paymentMethod String
+  paymentResult PaymentResult?
+  isPaid        Boolean        @default(false)
+  paidAt        DateTime?
+  isDelivered   Boolean        @default(false)
+  deliveredAt   DateTime?
+  orderItems    OrderItem[]
+  createdAt     DateTime       @default(now())
+  updatedAt     DateTime       @updatedAt
+
+  @@index([userId])
+  @@index([isPaid, isDelivered])
+}
+
+model OrderItem {
+  id        String  @id @default(auto()) @map("_id") @db.ObjectId
+  orderId   String  @db.ObjectId
+  order     Order   @relation(fields: [orderId], references: [id], onDelete: Cascade)
+  productId String  @db.ObjectId
+  product   Product @relation(fields: [productId], references: [id], onDelete: Cascade)
+  quantity  Int     @default(1)
+  price     Float   @default(0.0)
+
+  @@index([orderId])
+}
+
+model PaymentResult {
+  id           String   @id @default(auto()) @map("_id") @db.ObjectId
+  orderId      String   @unique @db.ObjectId
+  order        Order    @relation(fields: [orderId], references: [id], onDelete: Cascade)
+  paymentId    String
+  status       String
+  emailAddress String
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
 }

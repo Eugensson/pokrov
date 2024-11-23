@@ -1,11 +1,27 @@
-import { Navbar } from "@/app/(admin)/_components/navbar";
+import { Metadata } from "next";
+
+import { AppSidebar } from "@/components/app-sidebar";
+import { SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar";
+
+export const metadata: Metadata = {
+  title: {
+    template: "%s | Admin Dashboard",
+    absolute: "Admin Dashboard",
+  },
+  description: "Pokrov e-Commerce app",
+};
 
 const AdminLayout = ({ children }: { children: React.ReactNode }) => {
   return (
-    <nav className="w-full h-full flex flex-col justify-center items-center gap-y-10">
-      <Navbar />
-      {children}
-    </nav>
+    <SidebarProvider>
+      <AppSidebar />
+      <main className="w-full">
+        <SidebarTrigger />
+        <div className="p-4 h-[calc(100%-40px)] flex justify-center">
+          {children}
+        </div>
+      </main>
+    </SidebarProvider>
   );
 };
 

@@ -1,13 +1,26 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { ThemeProvider } from "next-themes";
+import { Inter, Jost } from "next/font/google";
 import { SessionProvider } from "next-auth/react";
 
-import { auth } from "@/auth";
 import { Toaster } from "@/components/ui/sonner";
+
+import { auth } from "@/auth";
+import { cn } from "@/lib/utils";
 
 import "./globals.css";
 
-const inter = Inter({ subsets: ["latin"] });
+const inter = Inter({
+  subsets: ["latin", "cyrillic"],
+  weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
+  variable: "--font-inter",
+});
+
+const jost = Jost({
+  subsets: ["latin", "cyrillic"],
+  weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
+  variable: "--font-jost",
+});
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -23,10 +36,17 @@ export default async function RootLayout({
 
   return (
     <SessionProvider session={session}>
-      <html lang="en">
-        <body className={inter.className}>
-          {children}
-          <Toaster />
+      <html lang="en" suppressHydrationWarning>
+        <body className={cn(inter.variable, jost.variable)}>
+          <ThemeProvider
+            attribute="class"
+            defaultTheme="system"
+            enableSystem={true}
+            disableTransitionOnChange
+          >
+            {children}
+            <Toaster />
+          </ThemeProvider>
         </body>
       </html>
     </SessionProvider>
