@@ -22,7 +22,7 @@ export const Nav = ({ className }: NavProps) => {
             <Link
               href={src}
               className={cn(
-                "capitalize tracking-widest hover:text-muted-foreground transition-colors",
+                "uppercase tracking-widest hover:text-muted-foreground transition-colors",
                 pathname === src && "text-muted-foreground",
                 className
               )}

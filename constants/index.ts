@@ -21,13 +21,13 @@ import { BiSolidContact } from "react-icons/bi";
 import { LiaTelegramPlane } from "react-icons/lia";
 
 export const NAV_LINKS = [
-  { label: "Про компанію", src: "/about", icon: RiInformation2Line },
-  { label: "Послуги", src: "/services", icon: GrServices },
-  { label: "Технологія", src: "/technology", icon: MdBiotech },
-  { label: "Продукція", src: "/shop", icon: GiShop },
-  { label: "Галерея", src: "/portfolio", icon: SlPicture },
-  { label: "Новини", src: "/blog", icon: ImNewspaper },
-  { label: "Контакти", src: "/contact", icon: BiSolidContact },
+  { label: "About", src: "/about", icon: RiInformation2Line },
+  { label: "Services", src: "/services", icon: GrServices },
+  { label: "Technology", src: "/technology", icon: MdBiotech },
+  { label: "Shop", src: "/shop", icon: GiShop },
+  { label: "Gallery", src: "/portfolio", icon: SlPicture },
+  { label: "Blog", src: "/blog", icon: ImNewspaper },
+  { label: "Contact", src: "/contact", icon: BiSolidContact },
 ];
 
 export const ADMIN_LINKS = [
