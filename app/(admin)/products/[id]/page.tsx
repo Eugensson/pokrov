@@ -1,6 +1,6 @@
 import { EditProductForm } from "@/app/(admin)/products/[id]/edit-product-form";
 
-import { getUniqueBrands, getUniqueCategories } from "@/lib/products";
+import { getUniqueBrands, getUniqueCategories } from "@/data/products";
 
 export const generateMetadata = async ({
   params,

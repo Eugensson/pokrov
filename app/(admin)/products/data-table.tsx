@@ -83,9 +83,9 @@ export function DataTable<TData, TValue>({
       rawData?.map((product: Product) => ({
         image: product.images[0],
         id: product.id,
-        name: product.name,
+        name: product.title,
         price: product.price,
-        countInStock: product.countInStock,
+        countInStock: product.stock,
         category: product.category,
         rating: product.rating,
         action: "Edit product",

@@ -90,7 +90,7 @@ export const EditProductForm = ({
 
   useEffect(() => {
     if (!product) return;
-    setValue("name", product.name);
+    setValue("title", product.name);
     setValue("slug", product.slug);
     setValue("price", product.price);
     setValue("images", product.images);
@@ -99,12 +99,12 @@ export const EditProductForm = ({
       selectedCategory || product.category.trim().toLowerCase()
     );
     setValue("brand", selectedBrand || product.brand.trim().toLowerCase());
-    setValue("countInStock", product.countInStock);
+    setValue("stock", product.stock);
     setValue("description", product.description);
   }, [product, selectedBrand, selectedCategory, setValue]);
 
   const generateSlug = () => {
-    const name = getValues("name");
+    const name = getValues("title");
     if (!name) {
       toast({ title: "Name field is empty!", variant: "destructive" });
       return;
@@ -238,7 +238,7 @@ export const EditProductForm = ({
           className="grid grid-cols-1 md:grid-cols-2 gap-4 lg:gap-8"
         >
           <div className="space-y-4">
-            <FormInput name="Name" id="name" required />
+            <FormInput name="Name" id="title" required />
             <div className="flex items-end justify-between gap-2">
               <FormInput name="Slug" id="slug" required />
               <Button type="button" onClick={generateSlug}>
@@ -246,7 +246,7 @@ export const EditProductForm = ({
               </Button>
             </div>
             <FormInput name="Price" id="price" required />
-            <FormInput name="Count In Stock" id="countInStock" required />
+            <FormInput name="Count In Stock" id="stock" required />
             <div className="flex flex-col gap-2">
               <FormInput
                 name="Category"

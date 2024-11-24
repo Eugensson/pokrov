@@ -1,4 +1,5 @@
 import type { Config } from "tailwindcss";
+import TailwindcssAnimate from "tailwindcss-animate";
 
 const config = {
   darkMode: ["class"],
@@ -22,9 +23,12 @@ const config = {
     },
     fontFamily: {
       primary: "var(--font-inter)",
-      secondary: "var(--font-comfortaa)",
+      secondary: "var(--font-lora)",
     },
     extend: {
+      backgroundImage: {
+        footer: "url('/images/bg-footer.jpg')",
+      },
       colors: {
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
@@ -77,20 +81,12 @@ const config = {
       },
       keyframes: {
         "accordion-down": {
-          from: {
-            height: "0",
-          },
-          to: {
-            height: "var(--radix-accordion-content-height)",
-          },
+          from: { height: "0" },
+          to: { height: "var(--radix-accordion-content-height)" },
         },
         "accordion-up": {
-          from: {
-            height: "var(--radix-accordion-content-height)",
-          },
-          to: {
-            height: "0",
-          },
+          from: { height: "var(--radix-accordion-content-height)" },
+          to: { height: "0" },
         },
       },
       animation: {
@@ -98,11 +94,8 @@ const config = {
         "accordion-up": "accordion-up 0.2s ease-out",
       },
     },
-    backgroundImage: {
-      footer: "url('/images/bg-footer.jpg')",
-    },
   },
-  plugins: [require("tailwindcss-animate")],
+  plugins: [TailwindcssAnimate],
 } satisfies Config;
 
 export default config;
