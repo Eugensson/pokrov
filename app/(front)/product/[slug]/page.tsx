@@ -17,23 +17,23 @@ import { AddToCartBtn } from "@/components/add-to-cart-btn";
 import { ProductImages } from "@/components/product-images";
 import { Card, CardContent, CardFooter } from "@/components/ui/card";
 
-import { getProductById } from "@/data/products";
+import { getProductBySlug } from "@/data/products";
 import { ShieldAlert, Truck, History, ListOrdered } from "lucide-react";
 
 export async function generateMetadata({
   params,
 }: {
-  params: Promise<{ id: string }>;
+  params: Promise<{ slug: string }>;
 }) {
-  const id = (await params).id;
-  const product = await getProductById(id);
+  const slug = (await params).slug;
+  const product = await getProductBySlug(slug);
 
   if (!product) {
     return { title: "Product not found" };
   }
 
   return {
-    title: product.name,
+    title: product.title,
     description: product.description,
   };
 }
@@ -41,21 +41,26 @@ export async function generateMetadata({
 const ProductDetails = async ({
   params,
 }: {
-  params: Promise<{ id: string }>;
+  params: Promise<{ slug: string }>;
 }) => {
-  const id = (await params).id;
-  const product: Product = await getProductById(id);
+  const slug = (await params).slug;
+  const product = await getProductBySlug(slug);
 
   if (!product) notFound();
 
   return (
     <section className="container py-4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5">
       <ProductImages images={product.images} className="lg:col-span-2" />
-      <ul className="lg:col-span-2 flex flex-col gap-3 p-2 relative">
+      <ul className="lg:col-span-2 flex flex-col gap-3 p-2 md:p-4 lg:p-6 relative">
         <li className="absolute top-4 right-10">
-          <Badge className="px-4 py-1.5 text-sm rounded" variant="destructive">
-            - {product.discountPercentage.toFixed(1)} %
-          </Badge>
+          {Number(product.discountPercentage) > 0 && (
+            <Badge
+              className="px-4 py-1.5 text-sm rounded"
+              variant="destructive"
+            >
+              - {product.discountPercentage.toFixed(1)} %
+            </Badge>
+          )}
         </li>
         <li>
           <Badge
@@ -93,21 +98,25 @@ const ProductDetails = async ({
             className="w-fit font-semibold text-2xl rounded-lg bg-green-500/10 px-4 py-2 text-green-700"
           />
         </li>
-        <li className="flex items-center gap-x-4">
-          <p className="text-muted-foreground min-w-60">
-            Dimensions, w/h/d, mm:
-          </p>
-          <p className="font-semibold capitalize flex items-center gap-x-2">
-            {/* @ts-ignore */}
-            {product.dimensions?.width?.toFixed(0)} * {/* @ts-ignore */}
-            {product.dimensions?.height?.toFixed(0)} * {/* @ts-ignore */}
-            {product.dimensions?.depth?.toFixed(0)}
-          </p>
-        </li>
-        <li className="flex items-center gap-x-4">
-          <p className="text-muted-foreground min-w-60">Weight:</p>
-          <p className="font-semibold capitalize">{product.weight} kg</p>
-        </li>
+        {Number(product.width) > 0 &&
+          Number(product.height) > 0 &&
+          Number(product.depth) > 0 && (
+            <li className="flex items-center gap-x-4">
+              <p className="text-muted-foreground min-w-60">
+                Dimensions, w/h/d, mm:
+              </p>
+              <p className="font-semibold capitalize flex items-center gap-x-2">
+                {product.width?.toFixed(0)} *{product.height?.toFixed(0)} *
+                {product.depth?.toFixed(0)}
+              </p>
+            </li>
+          )}
+        {Number(product.weight) > 0 && (
+          <li className="flex items-center gap-x-4">
+            <p className="text-muted-foreground min-w-60">Weight:</p>
+            <p className="font-semibold capitalize">{product.weight} kg</p>
+          </li>
+        )}
         <li>
           <Accordion type="single" collapsible className="w-full">
             <AccordionItem value="additionalInformation">

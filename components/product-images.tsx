@@ -16,7 +16,7 @@ export const ProductImages = ({ images, className }: ProductImagesProps) => {
   return (
     <div className={cn("space-y-4", className)}>
       <Image
-        src={images[current]}
+        src={images[current] ?? "/images/placeholder.png"}
         alt="Product image"
         width={1000}
         height={1000}

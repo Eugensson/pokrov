@@ -20,16 +20,17 @@ import {
 } from "@/components/ui/dropdown-menu";
 import { Button } from "@/components/ui/button";
 
-export type OrderRow = {
+interface OrderData {
   id: string;
-  user: string | null;
+  user: string;
   date: string;
   totalPrice: number;
-  paid: boolean | string;
+  paid: string;
   delivered: boolean | string;
-};
+  action: boolean | string;
+}
 
-export const columns: ColumnDef<OrderRow>[] = [
+export const columns: ColumnDef<OrderData, any>[] = [
   {
     accessorKey: "id",
     header: ({ column }) => {

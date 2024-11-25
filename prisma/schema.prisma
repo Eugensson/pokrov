@@ -84,29 +84,26 @@ model TwoFactorConfirmation {
 }
 
 model Product {
-  id                  String   @id @default(auto()) @map("_id") @db.ObjectId
-  slug                String?  @unique
-  title               String
-  description         String
-  category            String
-  price               Float
-  discountPercentage  Float
-  rating              Float
-  stock               Int
-  tags                String[]
-  brand               String
-  sku                 String
-  weight              Float
-  dimensions          Json?
-  width               Float?
-  height              Float?
-  depth               Float?
-  warrantyInformation String?
-  shippingInformation String
-  availabilityStatus  String?
-
+  id                   String      @id @default(auto()) @map("_id") @db.ObjectId
+  slug                 String      @unique
+  title                String
+  description          String
+  category             String
+  price                Float
+  discountPercentage   Float
+  rating               Float
+  stock                Int
+  tags                 String[]
+  brand                String
+  sku                  String
+  weight               Float?
+  width                Float?
+  height               Float?
+  depth                Float?
+  warrantyInformation  String?
+  shippingInformation  String?
   reviews              Review[]
-  returnPolicy         String
+  returnPolicy         String?
   minimumOrderQuantity Int
   images               String[]
   thumbnail            String
@@ -125,28 +122,6 @@ model Review {
   Product       Product? @relation(fields: [productId], references: [id])
   productId     String?  @db.ObjectId
 }
-
-// model Product {
-//   id           String      @id @default(auto()) @map("_id") @db.ObjectId
-//   name         String
-//   slug         String      @unique
-//   category     String
-//   images       String[]    @default([])
-//   price        Int         @default(0)
-//   discount     Int         @default(0)
-//   brand        String
-//   rating       Int         @default(0)
-//   numReviews   Int         @default(0)
-//   countInStock Int         @default(0)
-//   description  String
-//   isFeatured   Boolean     @default(false)
-//   colors       String[]
-//   sizes        String[]
-//   banner       String?
-//   createdAt    DateTime    @default(now())
-//   updatedAt    DateTime    @updatedAt
-//   OrderItem    OrderItem[]
-// }
 
 model Order {
   id            String         @id @default(auto()) @map("_id") @db.ObjectId

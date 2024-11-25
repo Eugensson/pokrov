@@ -24,12 +24,14 @@ import { formatId } from "@/lib/utils";
 
 import { useToast } from "@/hooks/use-toast";
 
+const fetcher = (url: string) => fetch(url).then((res) => res.json());
+
 export const EditUserForm = ({ userId }: { userId: string }) => {
   const router = useRouter();
 
   const { toast } = useToast();
 
-  const { data: user, error } = useSWR(`/api/admin/users/${userId}`);
+  const { data: user, error } = useSWR(`/api/admin/users/${userId}`, fetcher);
 
   const { trigger: updateUser, isMutating: isUpdating } = useSWRMutation(
     `/api/admin/users/${userId}`,

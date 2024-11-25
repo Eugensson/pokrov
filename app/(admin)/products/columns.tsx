@@ -10,6 +10,7 @@ import {
 } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
+import { toast } from "sonner";
 import useSWRMutation from "swr/mutation";
 import { useRouter } from "next/navigation";
 import { ColumnDef } from "@tanstack/react-table";
@@ -26,8 +27,6 @@ import { Button } from "@/components/ui/button";
 
 import { formatId } from "@/lib/utils";
 
-import { useToast } from "@/hooks/use-toast";
-
 export type ProductRow = {
   image: string;
   id: string;
@@ -40,14 +39,9 @@ export type ProductRow = {
 
 const ProductActions = ({ productId }: { productId: string }) => {
   const router = useRouter();
-  const { toast } = useToast();
   const { trigger: deleteProduct } = useSWRMutation(
     `/api/admin/products`,
     async (url, { arg }: { arg: { productId: string } }) => {
-      const toastId = toast({
-        title: "Deleting product...",
-      });
-
       try {
         const res = await fetch(`${url}/${arg.productId}`, {
           method: "DELETE",
@@ -55,23 +49,13 @@ const ProductActions = ({ productId }: { productId: string }) => {
         });
         const data = await res.json();
         if (res.ok) {
-          toast({
-            title: "Product deleted successfully",
-          });
+          toast.success("Product deleted successfully");
           router.refresh();
         } else {
-          toast({
-            title: `${toastId}`,
-            description: data.message,
-            variant: "destructive",
-          });
+          toast.error(data.message);
         }
       } catch {
-        toast({
-          title: "Error",
-          description: "Something went wrong",
-          variant: "destructive",
-        });
+        toast.error("Something went wrong");
       }
     }
   );
@@ -120,7 +104,8 @@ export const columns: ColumnDef<ProductRow>[] = [
     accessorKey: "image",
     header: () => <div>Image</div>,
     cell: ({ row }) => {
-      const imageUrl = row.getValue("image") as string;
+      const imageUrl =
+        (row.getValue("image") as string) ?? "/images/placeholder.png";
       return (
         <div className="flex justify-center items-center">
           <Image

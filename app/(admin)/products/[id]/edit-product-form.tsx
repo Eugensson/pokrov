@@ -1,6 +1,8 @@
 "use client";
 
 import useSWR from "swr";
+import Image from "next/image";
+import { toast } from "sonner";
 import { Product } from "@prisma/client";
 import useSWRMutation from "swr/mutation";
 import { useEffect, useState } from "react";
@@ -25,14 +27,10 @@ import {
 import { Label } from "@/components/ui/label";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
+import { Textarea } from "@/components/ui/textarea";
 import { Separator } from "@/components/ui/separator";
 
-import { useToast } from "@/hooks/use-toast";
-
-import { formatId } from "@/lib/utils";
-
-import { Textarea } from "@/components/ui/textarea";
-import Image from "next/image";
+import { formatId, fetcher } from "@/lib/utils";
 
 interface EditProductFormProps {
   productId: string;
@@ -47,9 +45,10 @@ export const EditProductForm = ({
 }: EditProductFormProps) => {
   const router = useRouter();
 
-  const { toast } = useToast();
-
-  const { data: product, error } = useSWR(`/api/admin/products/${productId}`);
+  const { data: product, error } = useSWR(
+    `/api/admin/products/${productId}`,
+    fetcher
+  );
 
   const [selectedCategory, setSelectedCategory] = useState<string>(
     product?.category || ""
@@ -69,13 +68,13 @@ export const EditProductForm = ({
         body: JSON.stringify(arg),
       });
       const data = await res.json();
-      if (!res.ok)
-        return toast({
-          title: data.message,
-          variant: "destructive",
-        });
 
-      toast({ title: "Product updated successfully" });
+      if (!res.ok) {
+        toast.error(data.message);
+        return;
+      }
+
+      toast.success("Product updated successfully");
       router.push("/products");
     }
   );
@@ -90,23 +89,60 @@ export const EditProductForm = ({
 
   useEffect(() => {
     if (!product) return;
-    setValue("title", product.name);
-    setValue("slug", product.slug);
-    setValue("price", product.price);
-    setValue("images", product.images);
+    const {
+      title,
+      slug,
+      price,
+      images,
+      category,
+      brand,
+      stock,
+      description,
+      discountPercentage,
+      rating,
+      tags,
+      sku,
+      weight,
+      width,
+      height,
+      depth,
+      warrantyInformation,
+      shippingInformation,
+      returnPolicy,
+      minimumOrderQuantity,
+      thumbnail,
+    } = product;
+
+    setValue("title", title);
+    setValue("slug", slug);
+    setValue("description", description);
+    setValue("price", price);
+    setValue("discountPercentage", discountPercentage);
+    setValue("rating", rating);
+    setValue("stock", stock);
+    setValue("tags", tags);
     setValue(
       "category",
       selectedCategory || product.category.trim().toLowerCase()
     );
     setValue("brand", selectedBrand || product.brand.trim().toLowerCase());
-    setValue("stock", product.stock);
-    setValue("description", product.description);
+    setValue("sku", sku);
+    setValue("weight", weight);
+    setValue("width", width);
+    setValue("height", height);
+    setValue("depth", depth);
+    setValue("warrantyInformation", warrantyInformation);
+    setValue("shippingInformation", shippingInformation);
+    setValue("returnPolicy", returnPolicy);
+    setValue("minimumOrderQuantity", minimumOrderQuantity);
+    setValue("images", images);
+    setValue("thumbnail", thumbnail);
   }, [product, selectedBrand, selectedCategory, setValue]);
 
   const generateSlug = () => {
     const name = getValues("title");
     if (!name) {
-      toast({ title: "Name field is empty!", variant: "destructive" });
+      toast.error("Name field is empty!");
       return;
     }
     const slug = name
@@ -114,11 +150,11 @@ export const EditProductForm = ({
       .replace(/\s+/g, "-")
       .replace(/[^\w-]/g, "");
     setValue("slug", slug);
-    toast({ title: "Slug generated successfully!" });
+    toast.success("Slug generated successfully!");
   };
 
   const uploadHandler = async (e: any) => {
-    const toastId = toast({ title: "Uploading images..." });
+    const toastId = toast.loading("Uploading images...");
     const newImages = [...getValues("images")];
 
     try {
@@ -128,10 +164,7 @@ export const EditProductForm = ({
       const files = e.target.files;
 
       if (files.length + newImages.length > 5) {
-        toast({
-          title: "You can upload a maximum of 5 images",
-          variant: "destructive",
-        });
+        toast.error("You can upload a maximum of 5 images");
         return;
       }
 
@@ -155,16 +188,10 @@ export const EditProductForm = ({
       }
 
       setValue("images", newImages as ["string"]);
-      toast({
-        title: "Images uploaded successfully",
-        description: `${toastId}`,
-      });
+      toast.success("Images uploaded successfully");
     } catch (err: any) {
-      toast({
-        title: err.message,
-        description: `${toastId}`,
-        variant: "destructive",
-      });
+      toast.error(err.message);
+      return;
     }
   };
 

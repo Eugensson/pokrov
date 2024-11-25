@@ -34,6 +34,8 @@ import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { User } from "@prisma/client";
 
+const fetcher = (url: string) => fetch(url).then((res) => res.json());
+
 interface DataTableProps<TData, TValue> {
   columns: ColumnDef<TData, TValue>[];
 }
@@ -45,7 +47,7 @@ export function DataTable<TData, TValue>({
   const [columnFilters, setColumnFilters] = useState<ColumnFiltersState>([]);
   const [columnVisibility, setColumnVisibility] = useState<VisibilityState>({});
 
-  const { data: rawData, error } = useSWR(`/api/admin/users`);
+  const { data: rawData, error } = useSWR("/api/admin/users", fetcher);
 
   const data = useMemo(() => {
     return (
@@ -73,7 +75,7 @@ export function DataTable<TData, TValue>({
     state: { sorting, columnFilters, columnVisibility },
   });
 
-  if (error) return <p>An error has occurred.</p>;
+  if (error) return <p>{error.message}</p>;
 
   return (
     <div className="w-full flex flex-col justify-between">

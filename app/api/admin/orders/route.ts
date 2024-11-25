@@ -1,31 +1,21 @@
-import { currentUser } from "@/lib/auth";
-import { PrismaClient } from "@prisma/client";
-
-const prisma = new PrismaClient();
+import { db } from "@/lib/db";
+import { handleError } from "@/lib/utils";
+import { authenticateAdmin } from "@/lib/auth";
 
 export const GET = async () => {
-  const user = await currentUser();
+  try {
+    await authenticateAdmin();
 
-  if (!user || user?.role !== "ADMIN") {
-    return new Response(JSON.stringify({ message: "Unauthorized" }), {
-      status: 401,
-    });
+    const orders = await db.order.findMany();
+
+    if (orders.length === 0) {
+      return new Response(JSON.stringify({ message: "No orders found" }), {
+        status: 404,
+      });
+    }
+
+    return new Response(JSON.stringify(orders), { status: 200 });
+  } catch (error: any) {
+    return handleError(error, "Error fetching orders");
   }
-
-  const orders = await prisma.order.findMany({
-    include: {
-      user: true,
-      paymentResult: true,
-      orderItems: {
-        include: {
-          product: true,
-        },
-      },
-    },
-    orderBy: {
-      createdAt: "desc",
-    },
-  });
-
-  return new Response(JSON.stringify(orders), { status: 200 });
 };

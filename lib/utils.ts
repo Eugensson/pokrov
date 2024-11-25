@@ -1,6 +1,8 @@
 import { type ClassValue, clsx } from "clsx";
 import { twMerge } from "tailwind-merge";
 
+import { db } from "@/lib/db";
+
 export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
 }
@@ -27,3 +29,28 @@ export const formatCurrency = (amount: number | string | null) => {
     return "NaN";
   }
 };
+
+export const findUserById = async (userId: string) => {
+  const user = await db.user.findUnique({
+    where: { id: userId },
+  });
+  if (!user) {
+    throw new Response(JSON.stringify({ message: "User not found" }), {
+      status: 404,
+    });
+  }
+  return user;
+};
+
+export const handleError = (error: any, defaultMessage: string) => {
+  console.error(defaultMessage, error);
+  return new Response(
+    JSON.stringify({
+      message: defaultMessage,
+      error: error.message || "Unknown error",
+    }),
+    { status: error.status || 500 }
+  );
+};
+
+export const fetcher = (url: string) => fetch(url).then((res) => res.json());

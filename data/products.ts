@@ -44,7 +44,20 @@ export const getUniqueCategories = async () => {
 
 export const getProducts = async () => {
   try {
-    const products = await fetch("https://dummyjson.com/products");
+    const products = await prisma.product.findMany();
+
+    return products;
+  } catch (error) {
+    console.error("Error fetching products:", error);
+    return [];
+  }
+};
+
+export const getProductsByCategory = async (category: string) => {
+  try {
+    const products = await fetch(
+      `https://dummyjson.com/products/category/${category}`
+    );
 
     return products.json();
   } catch (error) {
@@ -53,11 +66,17 @@ export const getProducts = async () => {
   }
 };
 
-export const getProductById = async (id: string) => {
-  try {
-    const product = await fetch(`https://dummyjson.com/products/${id}`);
+export const getProductsByBrand = async (brand: string) => {};
 
-    return product.json();
+export const getProductBySlug = async (slug: string) => {
+  try {
+    const product = await prisma.product.findUnique({
+      where: {
+        slug,
+      },
+    });
+
+    return product;
   } catch (error) {
     console.error("Error fetching products:", error);
     return null;

@@ -14,13 +14,14 @@ import { Badge } from "./ui/badge";
 import { Product } from "@prisma/client";
 
 export const ProductCard = ({ product }: { product: Product }) => {
-  const imageUrl = product.thumbnail ?? "/images/placeholder.png";
+  const imageUrl =
+    product.images[0] || product.thumbnail || "/images/placeholder.png";
 
   return (
     <Card className="h-fit">
       <CardContent className="p-0">
         <figure className="overflow-hidden relative">
-          <Link href={`/product/${product.id}`}>
+          <Link href={`/product/${product.slug}`}>
             <Image
               src={imageUrl}
               alt={product.title || "Product image"}
@@ -29,18 +30,20 @@ export const ProductCard = ({ product }: { product: Product }) => {
               className="object-cover aspect-square bg-center hover:scale-105 transition-transform duration-300 ease-in-out"
             />
           </Link>
-          <Badge
-            className="absolute top-4 right-4 px-4 py-1.5 rounded"
-            variant="destructive"
-          >
-            - {product.discountPercentage} %
-          </Badge>
+          {Number(product.discountPercentage) > 0 && (
+            <Badge
+              className="absolute top-4 right-4 px-4 py-1.5 rounded"
+              variant="destructive"
+            >
+              - {product.discountPercentage} %
+            </Badge>
+          )}
         </figure>
       </CardContent>
       <CardHeader>
         <CardTitle>
           <Link
-            href={`/product/${product.id}`}
+            href={`/product/${product.slug}`}
             className="text-sm font-medium uppercase line-clamp-2"
           >
             {product.title}

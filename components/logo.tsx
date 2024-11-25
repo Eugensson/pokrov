@@ -10,6 +10,7 @@ export const Logo = ({ className }: { className?: string }) => {
         alt="Логотип компанії"
         width={96}
         height={96}
+        priority
         className={cn("aspect-square", className)}
       />
     </Link>

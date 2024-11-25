@@ -11,3 +11,13 @@ export const currentRole = async () => {
 
   return session?.user?.role;
 };
+
+export const authenticateAdmin = async () => {
+  const user = await currentUser();
+  if (!user || user.role !== "ADMIN") {
+    throw new Response(JSON.stringify({ message: "Unauthorized" }), {
+      status: 401,
+    });
+  }
+  return user;
+};

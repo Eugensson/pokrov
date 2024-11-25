@@ -39,7 +39,7 @@ const UserActions = ({ userId }: { userId: string }) => {
   const { toast } = useToast();
 
   const { trigger: deleteUser } = useSWRMutation(
-    `/api/admin/users`,
+    `/api/admin/users/${userId}`,
     async (url, { arg }: { arg: { userId: string } }) => {
       const toastId = toast({
         title: "Deleting user...",

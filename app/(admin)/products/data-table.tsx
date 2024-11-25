@@ -13,6 +13,8 @@ import {
   getFilteredRowModel,
   getSortedRowModel,
 } from "@tanstack/react-table";
+import { toast } from "sonner";
+import { Product } from "@prisma/client";
 import { useMemo, useState } from "react";
 import useSWRMutation from "swr/mutation";
 import { useRouter } from "next/navigation";
@@ -35,8 +37,7 @@ import {
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 
-import { useToast } from "@/hooks/use-toast";
-import { Product } from "@prisma/client";
+import { fetcher } from "@/lib/utils";
 
 interface DataTableProps<TData, TValue> {
   columns: ColumnDef<TData, TValue>[];
@@ -46,12 +47,11 @@ export function DataTable<TData, TValue>({
   columns,
 }: DataTableProps<TData, TValue>) {
   const router = useRouter();
-  const { toast } = useToast();
   const [sorting, setSorting] = useState<SortingState>([]);
   const [columnFilters, setColumnFilters] = useState<ColumnFiltersState>([]);
   const [columnVisibility, setColumnVisibility] = useState<VisibilityState>({});
 
-  const { data: rawData, error } = useSWR(`/api/admin/products`);
+  const { data: rawData, error } = useSWR(`/api/admin/products`, fetcher);
 
   const { trigger: createProduct, isMutating: isCreating } = useSWRMutation(
     `/api/admin/products`,
@@ -64,17 +64,14 @@ export function DataTable<TData, TValue>({
       });
       const data = await res.json();
 
-      if (!res.ok)
-        return toast({
-          title: `${data.message}`,
-          variant: "destructive",
-        });
+      if (!res.ok) {
+        toast.error(data.message);
+        return;
+      }
 
-      toast({
-        title: "Product created successfully",
-      });
+      toast.success("Product created successfully");
 
-      router.push(`/products/${data.product._id}`);
+      router.push(`/products/${data.newProduct.id}`);
     }
   );
 
@@ -107,7 +104,7 @@ export function DataTable<TData, TValue>({
     state: { sorting, columnFilters, columnVisibility },
   });
 
-  if (error) return <p>An error has occurred.</p>;
+  if (error) return <p>{error.message}</p>;
 
   return (
     <div className="w-full flex flex-col justify-between">
